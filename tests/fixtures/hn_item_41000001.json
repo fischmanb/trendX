@@ -1,0 +1,11 @@
+{
+  "id": 41000001,
+  "type": "story",
+  "by": "techfounder",
+  "time": 1711300000,
+  "title": "Show HN: Open-source alternative to Notion with offline support",
+  "url": "https://example.com/notion-alt",
+  "score": 245,
+  "descendants": 89,
+  "kids": [41000101, 41000102]
+}

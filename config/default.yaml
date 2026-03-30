@@ -1,0 +1,84 @@
+proxy:
+  provider: "iproyal"
+  gateway: "geo.iproyal.com"
+  port: 12321
+  country: "US"
+
+anthropic:
+  model: "claude-sonnet-4-6"
+  max_tokens: 600
+  temperature: 0.2
+
+reddit:
+  feeds:
+    - url_template: "https://www.reddit.com/r/all/rising.json?limit=100"
+      name: "rising"
+    - url_template: "https://www.reddit.com/r/all/hot.json?limit=100"
+      name: "hot"
+    - url_template: "https://www.reddit.com/r/popular/new.json?limit=100"
+      name: "new"
+    - url_template: "https://www.reddit.com/r/all/top.json?t=day&limit=100"
+      name: "top"
+  new_subreddits_url: "https://www.reddit.com/subreddits/new.json?limit=100"
+  subreddit_search_template: "https://www.reddit.com/subreddits/search.json?q={topic}&limit=25"
+  comment_template: "https://www.reddit.com/r/{subreddit}/comments/{post_id}.json"
+  follow_up_intensity_threshold: 4
+  poll_interval_minutes: 30
+
+hackernews:
+  base_url: "https://hacker-news.firebaseio.com/v0"
+  poll_interval_minutes: 15
+  min_score: 10
+  follow_up_score_threshold: 50
+  max_stories_per_feed: 50
+  story_types:
+    - topstories
+    - newstories
+    - askstories
+    - showstories
+
+twitter:
+  nitter_instances:
+    - "https://nitter.net"
+    - "https://nitter.privacydev.net"
+    - "https://nitter.poast.org"
+  poll_interval_minutes: 30
+  via_proxy: true
+
+google_trends:
+  geo: "US"
+  timezone: 360
+  trending_searches_pn: "united_states"
+  max_validation_calls_per_cycle: 20
+  poll_interval_minutes: 30
+
+youtube:
+  max_searches_per_cycle: 50
+  max_comment_fetches_per_cycle: 30
+  poll_interval_minutes: 60
+
+quora:
+  poll_interval_minutes: 60
+  via_proxy: true
+
+producthunt:
+  poll_interval_minutes: 60
+
+clustering:
+  topic_similarity_threshold: 0.7
+  convergence_min_subreddits: 3
+  convergence_window_hours: 48
+
+deltas:
+  new_topic_min_signals: 3
+  spike_signal_threshold: 5
+  spike_subreddit_threshold: 2
+
+detection:
+  new_subreddit_max_age_days: 30
+  new_subreddit_growth_threshold: 50
+
+storage:
+  db_path: "data/trendx.db"
+  export_path: "data/opportunities.json"
+  export_top_n: 50

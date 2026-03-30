@@ -1,0 +1,68 @@
+{
+  "kind": "Listing",
+  "data": {
+    "after": "t3_abc123",
+    "children": [
+      {
+        "kind": "t3",
+        "data": {
+          "id": "abc123",
+          "subreddit": "personalfinance",
+          "title": "New overtime rules 2026 - am I eligible?",
+          "selftext": "My employer says I'm exempt from overtime but I make $45k. With the new DOL threshold taking effect in April, does this mean I should start getting overtime pay? I've been working 50+ hour weeks for years.",
+          "url": "https://www.reddit.com/r/personalfinance/comments/abc123",
+          "permalink": "/r/personalfinance/comments/abc123/new_overtime_rules_2026/",
+          "score": 1247,
+          "num_comments": 342,
+          "author": "overtimeworker2026",
+          "created_utc": 1711300000
+        }
+      },
+      {
+        "kind": "t3",
+        "data": {
+          "id": "def456",
+          "subreddit": "smallbusiness",
+          "title": "How to handle the 2026 overtime threshold change?",
+          "selftext": "I run a small business with 12 employees. Several of my salaried managers make between $40-55k. How do I budget for the new overtime rules? Anyone using a spreadsheet to track hours for newly non-exempt employees?",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/def456",
+          "permalink": "/r/smallbusiness/comments/def456/how_to_handle_overtime/",
+          "score": 89,
+          "num_comments": 67,
+          "author": "smallbizowner",
+          "created_utc": 1711290000
+        }
+      },
+      {
+        "kind": "t3",
+        "data": {
+          "id": "ghi789",
+          "subreddit": "webdev",
+          "title": "Built a tool to convert Figma designs to React components",
+          "selftext": "I've been manually converting Figma designs to React for months. Finally wrote a script that does 80% of the work. Still needs polish but saves hours per component.",
+          "url": "https://www.reddit.com/r/webdev/comments/ghi789",
+          "permalink": "/r/webdev/comments/ghi789/figma_to_react/",
+          "score": 456,
+          "num_comments": 123,
+          "author": "devtools_guy",
+          "created_utc": 1711280000
+        }
+      },
+      {
+        "kind": "t3",
+        "data": {
+          "id": "meme001",
+          "subreddit": "funny",
+          "title": "When your code works on the first try",
+          "selftext": "",
+          "url": "https://i.redd.it/meme.jpg",
+          "permalink": "/r/funny/comments/meme001/when_your_code_works/",
+          "score": 15000,
+          "num_comments": 500,
+          "author": "memeposter",
+          "created_utc": 1711270000
+        }
+      }
+    ]
+  }
+}
