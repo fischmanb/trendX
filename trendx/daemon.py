@@ -4,7 +4,7 @@ import asyncio
 import json
 import logging
 import time
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta, timezone, UTC
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -57,11 +57,11 @@ class CostTracker:
     def __init__(self, daily_budget: float = 20.0):
         self.daily_budget = daily_budget
         self.daily_spend = 0.0
-        self.day_start = datetime.utcnow().date()
+        self.day_start = datetime.now(UTC).date()
         self.cycle_count = 0
     
     def add(self, amount: float):
-        today = datetime.utcnow().date()
+        today = datetime.now(UTC).date()
         if today != self.day_start:
             logger.info(f"Day rolled over. Yesterday spent ${self.daily_spend:.4f} across {self.cycle_count} cycles")
             self.daily_spend = 0.0
@@ -98,7 +98,7 @@ class Pipeline:
         """Run one complete pipeline cycle. Returns stats dict."""
         cycle_start = time.time()
         stats = {
-            "started_at": datetime.utcnow().isoformat(),
+            "started_at": datetime.now(UTC).isoformat(),
             "signals_ingested": 0,
             "signals_classified": 0,
             "signals_relevant": 0,
@@ -235,7 +235,7 @@ class Pipeline:
                     if nf_id:
                         db.conn.execute(
                             "UPDATE opportunities SET status = 'dismissed', updated_at = ? WHERE id = ?",
-                            (datetime.utcnow().isoformat(), nf_id),
+                            (datetime.now(UTC).isoformat(), nf_id),
                         )
                         db.conn.commit()
                 
@@ -259,7 +259,7 @@ class Pipeline:
                             """INSERT OR REPLACE INTO deliberations
                                (opportunity_id, assessment_text, cost, created_at)
                                VALUES (?, ?, ?, ?)""",
-                            (opp_id, assessment, deliberator.total_cost, datetime.utcnow().isoformat()),
+                            (opp_id, assessment, deliberator.total_cost, datetime.now(UTC).isoformat()),
                         )
                         db.conn.commit()
                         stats["deliberations_run"] += 1
@@ -286,7 +286,7 @@ class Pipeline:
                                     """INSERT OR REPLACE INTO deliberations
                                        (opportunity_id, assessment_text, cost, created_at)
                                        VALUES (?, ?, ?, ?)""",
-                                    (cand["opportunity_id"], assessment, deliberator_re.total_cost, datetime.utcnow().isoformat()),
+                                    (cand["opportunity_id"], assessment, deliberator_re.total_cost, datetime.now(UTC).isoformat()),
                                 )
                                 db.conn.commit()
                                 redelib_count += 1
@@ -378,7 +378,7 @@ class Pipeline:
 
             # ── Step 10: LOG ──
             logger.info("Step 10/10: LOG")
-            stats["completed_at"] = datetime.utcnow().isoformat()
+            stats["completed_at"] = datetime.now(UTC).isoformat()
             self.cost.add(stats["cycle_cost"])
             self.cost.cycle_count += 1
             
@@ -424,7 +424,7 @@ class Pipeline:
             "status": "running",
             "pid": __import__("os").getpid(),
             "interval_minutes": interval_minutes,
-            "started_at": datetime.utcnow().isoformat(),
+            "started_at": datetime.now(UTC).isoformat(),
             "daily_budget": self.cost.daily_budget,
         })
 
@@ -433,7 +433,7 @@ class Pipeline:
             state = _read_state()
             if state.get("command") == "stop":
                 logger.info("Stop signal received from GUI")
-                _write_state({"status": "stopped", "stopped_at": datetime.utcnow().isoformat()})
+                _write_state({"status": "stopped", "stopped_at": datetime.now(UTC).isoformat()})
                 break
 
             # Check for interval change
@@ -447,7 +447,7 @@ class Pipeline:
                 _write_state({
                     "status": "running_cycle",
                     "pid": __import__("os").getpid(),
-                    "cycle_started": datetime.utcnow().isoformat(),
+                    "cycle_started": datetime.now(UTC).isoformat(),
                     "interval_minutes": interval_minutes,
                     "cycle_number": self.cost.cycle_count + 1,
                     "daily_spend": self.cost.daily_spend,
@@ -476,7 +476,7 @@ class Pipeline:
                     "interval_minutes": interval_minutes,
                     "actual_interval": actual_interval,
                     "next_cycle_at": next_cycle.isoformat(),
-                    "last_cycle_completed": datetime.utcnow().isoformat(),
+                    "last_cycle_completed": datetime.now(UTC).isoformat(),
                     "last_cycle_signals": stats.get("signals_ingested", 0),
                     "last_cycle_classified": stats.get("signals_classified", 0),
                     "last_cycle_cost": stats.get("cycle_cost", 0),
@@ -497,7 +497,7 @@ class Pipeline:
                 
                 if state.get("command") == "stop":
                     logger.info("Stop signal received during sleep")
-                    _write_state({"status": "stopped", "stopped_at": datetime.utcnow().isoformat()})
+                    _write_state({"status": "stopped", "stopped_at": datetime.now(UTC).isoformat()})
                     break
                 elif state.get("command") == "run_now":
                     logger.info("Run-now signal received — starting next cycle immediately")
@@ -506,10 +506,10 @@ class Pipeline:
 
             except KeyboardInterrupt:
                 logger.info("Daemon stopped by user")
-                _write_state({"status": "stopped", "stopped_at": datetime.utcnow().isoformat()})
+                _write_state({"status": "stopped", "stopped_at": datetime.now(UTC).isoformat()})
                 break
             except Exception as e:
                 logger.exception(f"Daemon error: {e}")
-                _write_state({"status": "error", "error": str(e), "at": datetime.utcnow().isoformat()})
+                _write_state({"status": "error", "error": str(e), "at": datetime.now(UTC).isoformat()})
                 logger.info("Recovering in 5 minutes...")
                 time.sleep(300)

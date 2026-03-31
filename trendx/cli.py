@@ -6,7 +6,7 @@ import logging
 import sys
 import time
 import uuid
-from datetime import datetime
+from datetime import datetime, UTC
 from pathlib import Path
 
 import click
@@ -201,7 +201,7 @@ def cli(ctx, verbose, config_path):
 def scan(ctx):
     """Run a full scan cycle: ingest → classify → cluster → detect → score → export."""
     config = ctx.obj["config"]
-    started_at = datetime.utcnow().isoformat()
+    started_at = datetime.now(UTC).isoformat()
 
     with get_db(config) as db:
         scan_stats = {
@@ -279,7 +279,7 @@ def scan(ctx):
         console.print(f"  Exported to {out}")
 
         # Log scan
-        scan_stats["completed_at"] = datetime.utcnow().isoformat()
+        scan_stats["completed_at"] = datetime.now(UTC).isoformat()
         db.log_scan(scan_stats)
 
         # Summary
@@ -556,7 +556,7 @@ def track_sub(ctx, subreddit_name):
     with get_db(config) as db:
         db.upsert_subreddit({
             "subreddit": subreddit_name,
-            "first_seen": datetime.utcnow().isoformat(),
+            "first_seen": datetime.now(UTC).isoformat(),
             "subscriber_count": 0,
             "is_new": True,
         })

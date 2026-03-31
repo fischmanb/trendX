@@ -3,7 +3,7 @@
 import json
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, UTC
 
 from .base import BaseIngestor
 from ..config import GoogleTrendsConfig
@@ -32,7 +32,7 @@ class GoogleTrendsIngestor(BaseIngestor):
                 for idx, row in trending.iterrows():
                     topic = row[0] if len(row) > 0 else str(row)
                     signal = self.build_signal(
-                        source_id=f"gt_trending_{topic}_{datetime.utcnow().strftime('%Y%m%d')}",
+                        source_id=f"gt_trending_{topic}_{datetime.now(UTC).strftime('%Y%m%d')}",
                         title=topic,
                         body="",
                         feed="trending_searches",
@@ -52,7 +52,7 @@ class GoogleTrendsIngestor(BaseIngestor):
                 for idx, row in realtime.iterrows():
                     title = row.get("title", "") if hasattr(row, "get") else str(row)
                     signal = self.build_signal(
-                        source_id=f"gt_realtime_{idx}_{datetime.utcnow().strftime('%Y%m%d%H')}",
+                        source_id=f"gt_realtime_{idx}_{datetime.now(UTC).strftime('%Y%m%d%H')}",
                         title=title,
                         body=row.get("entityNames", "") if hasattr(row, "get") else "",
                         feed="realtime_trending",

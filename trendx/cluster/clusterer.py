@@ -4,7 +4,7 @@ import json
 import logging
 import re
 import uuid
-from datetime import datetime
+from datetime import datetime, UTC
 
 from rapidfuzz import fuzz
 
@@ -101,7 +101,7 @@ def cluster_signals(db: Database, config: ClusteringConfig) -> tuple[int, int]:
 
 def _create_opportunity_from_signal(signal: dict) -> dict:
     """Create a new opportunity dict from a classified signal."""
-    now = datetime.utcnow().isoformat()
+    now = datetime.now(UTC).isoformat()
     subreddits = [signal["subreddit"]] if signal.get("subreddit") else []
     sources = {signal.get("source", "unknown")}
     source_urls = [signal["permalink"]] if signal.get("permalink") else []
@@ -119,7 +119,7 @@ def _create_opportunity_from_signal(signal: dict) -> dict:
         new_community_names.append(signal["new_community_name"])
 
     return {
-        "id": f"opp_{datetime.utcnow().strftime('%Y%m%d')}_{uuid.uuid4().hex[:6]}",
+        "id": f"opp_{datetime.now(UTC).strftime('%Y%m%d')}_{uuid.uuid4().hex[:6]}",
         "topic": signal.get("topic", ""),
         "category": signal.get("category", "other"),
         "signal_count": 1,
@@ -164,7 +164,7 @@ def _merge_signal_into_opportunity(opp: dict, signal: dict) -> None:
     """Merge a classified signal into an existing opportunity."""
     opp["signal_count"] = opp.get("signal_count", 1) + 1
     opp["max_intensity"] = max(opp.get("max_intensity", 0), signal.get("intensity", 0))
-    opp["last_seen"] = datetime.utcnow().isoformat()
+    opp["last_seen"] = datetime.now(UTC).isoformat()
 
     # Aggregate per-pattern max scores
     opp["max_convergence_score"] = max(opp.get("max_convergence_score", 0), signal.get("convergence_score", 0))

@@ -98,9 +98,9 @@ def build_user_prompt(signal: dict) -> str:
     age_str = "unknown"
     if created_at:
         try:
-            from datetime import datetime
+            from datetime import datetime, UTC
             created = datetime.fromisoformat(created_at.replace("Z", "+00:00").replace("+00:00", ""))
-            hours = (datetime.utcnow() - created).total_seconds() / 3600
+            hours = (datetime.now(UTC) - created).total_seconds() / 3600
             age_str = f"{hours:.0f}h"
         except (ValueError, TypeError):
             pass

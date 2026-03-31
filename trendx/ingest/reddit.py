@@ -3,7 +3,7 @@
 import asyncio
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, UTC
 
 import httpx
 
@@ -34,7 +34,7 @@ class RedditIngestor(BaseIngestor):
             if not post.get("id"):
                 continue
             created_utc = post.get("created_utc", 0)
-            created_at = datetime.utcfromtimestamp(created_utc).isoformat() if created_utc else None
+            created_at = datetime.fromtimestamp(created_utc, UTC).isoformat() if created_utc else None
             signal = self.build_signal(
                 source_id=post["id"],
                 title=post.get("title", ""),
@@ -64,7 +64,7 @@ class RedditIngestor(BaseIngestor):
                 "subreddit": sub["display_name"],
                 "subscriber_count": sub.get("subscribers", 0),
                 "description": sub.get("public_description", ""),
-                "created_at": datetime.utcfromtimestamp(created_utc).isoformat() if created_utc else None,
+                "created_at": datetime.fromtimestamp(created_utc, UTC).isoformat() if created_utc else None,
                 "is_new": True,
             })
         return subs
@@ -222,7 +222,7 @@ class RedditIngestor(BaseIngestor):
                                     score=cdata.get("score", 0),
                                     subreddit=subreddit,
                                     author=cdata.get("author", ""),
-                                    created_at=datetime.utcfromtimestamp(created_utc).isoformat() if created_utc else None,
+                                    created_at=datetime.fromtimestamp(created_utc, UTC).isoformat() if created_utc else None,
                                     feed="comment",
                                     parent_signal_id=post.get("id"),
                                 )

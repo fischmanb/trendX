@@ -2,7 +2,7 @@
 
 import json
 import sqlite3
-from datetime import datetime
+from datetime import datetime, UTC
 from pathlib import Path
 
 
@@ -400,7 +400,7 @@ class Database:
     # ── Opportunities ──
 
     def upsert_opportunity(self, opp: dict) -> None:
-        now = datetime.utcnow().isoformat()
+        now = datetime.now(UTC).isoformat()
         existing = self.conn.execute(
             "SELECT id FROM opportunities WHERE id = ?", (opp["id"],)
         ).fetchone()
@@ -568,7 +568,7 @@ class Database:
     def dismiss_opportunity(self, opp_id: str) -> None:
         self.conn.execute(
             "UPDATE opportunities SET status = 'dismissed', updated_at = ? WHERE id = ?",
-            (datetime.utcnow().isoformat(), opp_id),
+            (datetime.now(UTC).isoformat(), opp_id),
         )
         self.conn.commit()
 
@@ -584,7 +584,7 @@ class Database:
         )
         self.conn.execute(
             "UPDATE opportunities SET status = 'acted_on', updated_at = ? WHERE id = ?",
-            (datetime.utcnow().isoformat(), action["opportunity_id"]),
+            (datetime.now(UTC).isoformat(), action["opportunity_id"]),
         )
         self.conn.commit()
 
@@ -592,7 +592,7 @@ class Database:
 
     def save_snapshots(self) -> None:
         """Snapshot all non-dismissed opportunities for delta detection."""
-        now = datetime.utcnow().isoformat()
+        now = datetime.now(UTC).isoformat()
         opps = self.conn.execute(
             "SELECT id, signal_count, subreddit_count, score_path_a, score_path_b, score_path_c FROM opportunities WHERE status != 'dismissed'"
         ).fetchall()
@@ -637,10 +637,10 @@ class Database:
                 description = excluded.description,
                 related_opportunity_id = excluded.related_opportunity_id""",
             (
-                sub["subreddit"], sub.get("first_seen", datetime.utcnow().isoformat()),
+                sub["subreddit"], sub.get("first_seen", datetime.now(UTC).isoformat()),
                 sub.get("subscriber_count", 0), sub.get("subscriber_count_previous", 0),
                 sub.get("growth_rate_per_day", 0),
-                sub.get("last_checked", datetime.utcnow().isoformat()),
+                sub.get("last_checked", datetime.now(UTC).isoformat()),
                 sub.get("description", ""), sub.get("is_new", False),
                 sub.get("related_opportunity_id"),
             ),
@@ -710,14 +710,14 @@ class Database:
         if judgment == "interesting":
             self.conn.execute(
                 "UPDATE opportunities SET status = 'watching', updated_at = ? WHERE id = ?",
-                (datetime.utcnow().isoformat(), opportunity_id),
+                (datetime.now(UTC).isoformat(), opportunity_id),
             )
             # Create build candidate — this opportunity enters the build pipeline
             self.create_build_candidate(opportunity_id)
         elif judgment == "pass":
             self.conn.execute(
                 "UPDATE opportunities SET status = 'dismissed', updated_at = ? WHERE id = ?",
-                (datetime.utcnow().isoformat(), opportunity_id),
+                (datetime.now(UTC).isoformat(), opportunity_id),
             )
             # NOTE: dismissed does NOT stop re-crawling the source signals.
             # The signals stay in the system. The opportunity is just hidden from review.
@@ -924,7 +924,7 @@ class Database:
     def create_build_candidate(self, opportunity_id: str) -> str:
         """Create a build candidate from an affirmed opportunity. Returns candidate ID."""
         import uuid
-        candidate_id = f"build_{datetime.utcnow().strftime('%Y%m%d')}_{uuid.uuid4().hex[:6]}"
+        candidate_id = f"build_{datetime.now(UTC).strftime('%Y%m%d')}_{uuid.uuid4().hex[:6]}"
         opp = self.get_opportunity(opportunity_id)
         source_urls = opp.get("source_urls_json", "[]") if opp else "[]"
         self.conn.execute(
@@ -964,7 +964,7 @@ class Database:
         """Archive a build candidate — trend died, competition arrived, or went dormant."""
         self.conn.execute(
             "UPDATE build_candidates SET archived_at = ?, archive_reason = ?, status = 'archived' WHERE id = ?",
-            (datetime.utcnow().isoformat(), reason, candidate_id),
+            (datetime.now(UTC).isoformat(), reason, candidate_id),
         )
         self.conn.commit()
 

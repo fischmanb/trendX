@@ -1,7 +1,7 @@
 """JSON export for TrendX opportunities."""
 
 import json
-from datetime import datetime
+from datetime import datetime, UTC
 from pathlib import Path
 
 from .db import Database
@@ -12,7 +12,7 @@ def export_opportunities(db: Database, output_path: str, top_n: int = 50) -> str
     opps = db.get_opportunities(limit=top_n)
 
     export_data = {
-        "exported_at": datetime.utcnow().isoformat() + "Z",
+        "exported_at": datetime.now(UTC).isoformat() + "Z",
         "count": len(opps),
         "opportunities": [],
     }

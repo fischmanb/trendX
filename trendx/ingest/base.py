@@ -2,7 +2,7 @@
 
 import uuid
 from abc import ABC, abstractmethod
-from datetime import datetime
+from datetime import datetime, UTC
 
 from ..store.db import Database
 
@@ -49,7 +49,7 @@ class BaseIngestor(ABC):
             "comment_count": comment_count,
             "subreddit": subreddit,
             "author": author,
-            "created_at": created_at or datetime.utcnow().isoformat(),
+            "created_at": created_at or datetime.now(UTC).isoformat(),
             "feed": feed,
             "parent_signal_id": parent_signal_id,
             "metadata_json": metadata_json,

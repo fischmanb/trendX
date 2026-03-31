@@ -3,7 +3,7 @@
 import json
 import subprocess
 import sys
-from datetime import datetime
+from datetime import datetime, UTC
 from pathlib import Path
 
 import streamlit as st
@@ -531,7 +531,7 @@ try:
                             (opp_id,),
                         ).fetchone()
                         if cand:
-                            db.update_build_candidate(cand["id"], status="building", built_at=datetime.utcnow().isoformat())
+                            db.update_build_candidate(cand["id"], status="building", built_at=datetime.now(UTC).isoformat())
                         else:
                             db.create_build_candidate(opp_id)
                         

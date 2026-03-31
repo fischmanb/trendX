@@ -2,7 +2,7 @@
 
 import asyncio
 import logging
-from datetime import datetime
+from datetime import datetime, UTC
 
 import httpx
 
@@ -75,7 +75,7 @@ class HackerNewsIngestor(BaseIngestor):
                     return 0
                 if item.get("score", 0) < self.config.min_score:
                     return 0
-                created_at = datetime.utcfromtimestamp(item.get("time", 0)).isoformat()
+                created_at = datetime.fromtimestamp(item.get("time", 0), UTC).isoformat()
                 signal = self.build_signal(
                     source_id=str(item["id"]),
                     title=item.get("title", ""),
@@ -117,7 +117,7 @@ class HackerNewsIngestor(BaseIngestor):
                                 return 0
                             if comment.get("text") in (None, "[dead]", "[flagged]"):
                                 return 0
-                            created_at = datetime.utcfromtimestamp(comment.get("time", 0)).isoformat()
+                            created_at = datetime.fromtimestamp(comment.get("time", 0), UTC).isoformat()
                             signal = self.build_signal(
                                 source_id=str(comment["id"]),
                                 title="",

@@ -2,7 +2,7 @@
 
 import json
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, UTC
 
 import httpx
 
@@ -51,7 +51,7 @@ class YouTubeIngestor(BaseIngestor):
     async def _search_topic(self, topic: str) -> int:
         """Search for recent videos on a topic and fetch their comments."""
         ingested = 0
-        since = (datetime.utcnow() - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        since = (datetime.now(UTC) - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
         url = (
             f"{YT_SEARCH_URL}?part=snippet&q={topic}&type=video"
@@ -148,7 +148,7 @@ class YouTubeIngestor(BaseIngestor):
         if not self.config.api_key:
             return {"topic": topic, "recent_videos": -1, "gap": "unknown"}
 
-        since = (datetime.utcnow() - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        since = (datetime.now(UTC) - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
         url = (
             f"{YT_SEARCH_URL}?part=snippet&q={topic}&type=video"
             f"&order=date&publishedAfter={since}&maxResults=1"
