@@ -92,7 +92,7 @@ class AutoEvaluator:
         try:
             response = self.client.messages.create(
                 model=self.config.model,
-                max_tokens=800,
+                max_tokens=4000,
                 temperature=0.1,
                 system=AUTO_EVAL_SYSTEM,
                 messages=[{"role": "user", "content": user_prompt}],
@@ -107,7 +107,27 @@ class AutoEvaluator:
                 lines = raw.splitlines()
                 raw = "\n".join(lines[1:-1] if lines[-1].startswith("```") else lines[1:])
             
-            parsed = json.loads(raw.strip())
+            parsed = None
+            text = raw.strip()
+            # Try direct parse first
+            try:
+                parsed = json.loads(text)
+            except json.JSONDecodeError:
+                # Recover truncated JSON: find the JSON object and close it
+                first = text.find("{")
+                if first >= 0:
+                    text = text[first:]
+                    # Try closing unclosed braces/brackets
+                    for suffix in ["", '"}', '"]}', '"]}}', "}", "]}", "]}}"]:
+                        try:
+                            parsed = json.loads(text + suffix)
+                            break
+                        except json.JSONDecodeError:
+                            continue
+            
+            if parsed is None:
+                logger.warning(f"Auto-eval: could not parse response ({len(raw)} chars)")
+                return [], []
             
             if isinstance(parsed, dict):
                 selected = [str(i) for i in parsed.get("selected", [])]

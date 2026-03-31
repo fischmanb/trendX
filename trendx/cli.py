@@ -513,15 +513,24 @@ def watch(ctx, interval):
 @cli.command()
 @click.option("--interval", "-i", default=96, help="Minutes between cycles")
 @click.option("--budget", "-b", default=20.0, help="Daily budget in USD")
+@click.option("--once", is_flag=True, help="Run a single full cycle and exit")
 @click.pass_context
-def daemon(ctx, interval, budget):
+def daemon(ctx, interval, budget, once):
     """Run full autonomous pipeline 24/7: ingest → classify → score → auto-eval → deliberate."""
     from .daemon import Pipeline
     config_path = ctx.obj.get("config_path")
     pipeline = Pipeline(config_path=config_path, daily_budget=budget)
-    console.print(f"[bold]TrendX Daemon[/bold] — cycle every {interval}m, budget ${budget:.0f}/day")
-    console.print("Press Ctrl+C to stop\n")
-    pipeline.run_forever(interval_minutes=interval)
+    if once:
+        console.print("[bold]TrendX Daemon[/bold] — single cycle, budget ${:.0f}/day".format(budget))
+        stats = pipeline.run_cycle()
+        console.print(f"\n[green]Cycle complete.[/green] "
+                      f"{stats['signals_ingested']} ingested, {stats['signals_classified']} classified, "
+                      f"{stats['signals_relevant']} relevant, {stats['auto_eval_selected']} evaluated, "
+                      f"{stats['deliberations_run']} deliberated — ${stats['cycle_cost']:.4f}")
+    else:
+        console.print(f"[bold]TrendX Daemon[/bold] — cycle every {interval}m, budget ${budget:.0f}/day")
+        console.print("Press Ctrl+C to stop\n")
+        pipeline.run_forever(interval_minutes=interval)
 
 
 @cli.command()
