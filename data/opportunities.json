@@ -1,0 +1,2281 @@
+{
+  "exported_at": "2026-03-30T08:21:22.065238Z",
+  "count": 50,
+  "opportunities": [
+    {
+      "id": "opp_20260330_80aa58",
+      "topic": "AI web scraper trapping / anti-bot poisoning tool",
+      "category": "Developer Tools / Web Security / Anti-AI Scraping",
+      "signal_count": 2,
+      "max_intensity": 82,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 39,
+        "path_b": 73,
+        "path_c": 55
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "AI training data scraping has become a major flashpoint in 2024-2025, with lawsuits (NYT, authors), EU AI Act data provisions, and growing publisher revolt (Reddit, news orgs blocking crawlers). Sentiment is at peak frustration.",
+      "existing_solution": "Nepenthes (similar poison-pit concept), Cloudflare AI Scrapers Blocked toggle, Dark Visitors robots.txt generator, manual IP blocklists \u2014 none offer active deception/poisoning as a managed service",
+      "social_hook": "Instead of begging AI companies to respect robots.txt, this tool fights back by feeding scrapers an infinite maze of garbage \u2014 turning their own crawlers against them",
+      "content_angle": "\"How to poison AI scrapers that ignore your robots.txt\" \u2014 tutorial post or video walking through Miasma setup, with broader explainer on why passive blocking no longer works and active countermeasures are the new frontier",
+      "product_angle": "Managed 'scraper trap as a service' \u2014 one-line script embed or WordPress/Cloudflare Worker plugin that auto-deploys honeypot content, tracks scraper activity, and provides a dashboard showing which AI bots were caught and how much compute was wasted. Monetize via SaaS subscription targeting publishers, news sites, and indie developers.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.422174",
+      "last_seen": "2026-03-30T08:21:22.049349",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_d2fc64",
+      "topic": "AI coding agent orchestration \u2014 automated ticket-to-PR pipeline",
+      "category": "Developer Tools / AI Automation",
+      "signal_count": 2,
+      "max_intensity": 78,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 38,
+        "path_b": 72,
+        "path_c": 54
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "Directly riding the wave of Claude Code, Codex, and autonomous coding agent adoption in mid-2025. The pain of managing multiple concurrent agent sessions is a fresh, widely-felt problem as these tools hit mainstream developer workflows.",
+      "existing_solution": "Partial solutions exist (Devin, SWE-agent, GitHub Copilot Workspace) but none offer self-healing feedback loops with K8s isolation, CI-aware auto-resumption, and full ticket-to-merged-PR lifecycle management in an open-source, self-hostable form",
+      "social_hook": "What if your AI coding agents could fix their own CI failures and respond to code review \u2014 without you ever looking at the PR?",
+      "content_angle": "Tutorial/demo: 'I stopped babysitting AI coding agents \u2014 here's the orchestration layer that runs them autonomously from ticket to merged PR'",
+      "product_angle": "Open-source Kubernetes-native orchestration platform for AI coding agents with self-healing feedback loops; monetizable via hosted/managed version, enterprise Helm chart support, or SaaS dashboard with team collaboration features",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.423444",
+      "last_seen": "2026-03-30T08:21:22.049443",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_209fb1",
+      "topic": "Federal Reserve rate cut pause and investment strategy implications",
+      "category": "Finance / Macroeconomics",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 57,
+        "path_b": 31,
+        "path_c": 72
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Fed rate cut cycle potentially ending creates immediate urgency around bond allocation, mortgage decisions, HYSA vs equities, and refinancing windows \u2014 retail investors are actively repositioning right now",
+      "existing_solution": "Generic financial media coverage (Bloomberg, CNBC) and fee-based financial advisors, but no accessible real-time retail-focused tool that translates Fed signals into plain-language portfolio action steps",
+      "social_hook": "The rate cut era may be over \u2014 here's what that actually means for your money (not the CNBC version)",
+      "content_angle": "Explainer content: 'Higher for longer is back \u2014 what to do with your savings, mortgage, bonds, and stocks right now' targeting retail investors who are confused by conflicting signals",
+      "product_angle": "A Fed-signal-to-portfolio-action translator tool or newsletter that converts macro Fed language into specific, tiered retail investor recommendations (e.g., 'if you have a variable rate mortgage, here's your window')",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.426960",
+      "last_seen": "2026-03-30T08:21:22.049975",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_c8fadd",
+      "topic": "AI coding agents lacking visual feedback on UI output",
+      "category": "Developer Tools / AI Agents",
+      "signal_count": 2,
+      "max_intensity": 74,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 37,
+        "path_b": 71,
+        "path_c": 54
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "AI coding agents (Claude Code, Cursor, Codex) have exploded in adoption in 2024-2025. The gap between code generation and visual verification is a freshly felt pain point as more developers shift to fully agentic workflows. The tooling ecosystem around AI agents is being built in real time.",
+      "existing_solution": "Playwright MCP and similar browser automation tools exist but are described as slower and more complex. No dominant purpose-built solution for giving AI agents visual UI verification exists yet. ProofShot itself is the emerging answer, currently open source and free.",
+      "social_hook": "Your AI agent writes the code but it's literally blind \u2014 it has no idea if the UI it just built looks like garbage or is throwing errors. This tool gives it eyes.",
+      "content_angle": "Tutorial or video: 'How to stop manually checking the browser after every AI code change' \u2014 showing the before/after workflow with Claude Code or Cursor using ProofShot to self-verify UI output.",
+      "product_angle": "A hosted or SaaS version of this concept \u2014 a visual verification layer that integrates natively with AI coding agents, storing screenshot diffs, console logs, and session replays per agent run. Could monetize as a per-seat or per-run tool for teams using agentic CI/CD pipelines.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.424231",
+      "last_seen": "2026-03-30T08:21:22.049526",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_18c0e0",
+      "topic": "Plain-text cognitive architecture / memory system for Claude Code (AI coding agent)",
+      "category": "AI Developer Tools",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 37,
+        "path_b": 71,
+        "path_c": 53
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "Claude Code launched in early 2025 and is rapidly gaining adoption among developers. The 'agentic coding' wave is at peak early-adopter phase, meaning meta-tooling, frameworks, and cognitive architecture patterns are being invented in real time. First-mover advantage for tooling is high right now.",
+      "existing_solution": "No native solution from Anthropic. Community workarounds include CLAUDE.md files, custom system prompts, and ad-hoc markdown memory files. Some overlap with projects like MemGPT/Letta, but nothing purpose-built and polished for Claude Code specifically.",
+      "social_hook": "What if your AI coding agent actually remembered what it was doing \u2014 and why? This dev built a plain-text 'brain' for Claude Code that gives it persistent memory and structured reasoning across sessions.",
+      "content_angle": "Tutorial/breakdown: 'How to give Claude Code a persistent memory and cognitive architecture using plain text files' \u2014 walkthrough of the pattern, why it works, and how to adapt it to your own projects.",
+      "product_angle": "A packaged, installable cognitive architecture framework for AI coding agents \u2014 a CLI tool or npm/pip package that scaffolds a structured memory system (goals, context, decisions, task state) into any project, compatible with Claude Code, Cursor, and similar agents. Could monetize via a hosted dashboard that visualizes agent memory state across projects.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.425135",
+      "last_seen": "2026-03-30T08:21:22.049908",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_b250e1",
+      "topic": "Cannabis use for autism symptom management (overstimulation, burnout, social anxiety)",
+      "category": "Health & Wellness / Neurodivergent",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 55,
+        "path_b": 54,
+        "path_c": 71
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Cannabis legalization is expanding across the US and globally; autistic adults are an underserved population in medical cannabis guidance; neurodivergent self-advocacy is a growing cultural movement",
+      "existing_solution": "General cannabis dispensary advice and generic medical marijuana resources exist, but nothing autism-specific or symptom-mapped for sensory/burnout use cases",
+      "social_hook": "Autistic adults are quietly using cannabis to manage overstimulation and burnout \u2014 and no one is giving them proper guidance",
+      "content_angle": "Evidence-based explainer: 'Cannabis and Autism \u2014 What We Know About Overstimulation, Burnout, and Self-Regulation' targeting autistic adults and their caregivers",
+      "product_angle": "Autism-specific cannabis harm-reduction guide, app, or consultation service \u2014 symptom-to-strain/dose matching, safety protocols, and community-sourced experiences for autistic users",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.434129",
+      "last_seen": "2026-03-30T08:21:22.050267",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_b68a72",
+      "topic": "Meshtastic/LoRa mesh integration for non-chat applications (navigation, tracking, sensors, emergency comms)",
+      "category": "Developer Tools / IoT / Off-Grid Tech",
+      "signal_count": 2,
+      "max_intensity": 68,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 48,
+        "path_b": 70,
+        "path_c": 65
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B",
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Meshtastic adoption is accelerating driven by interest in off-grid comms, disaster preparedness (post-hurricane/wildfire events), and growing distrust of cellular infrastructure. The platform is maturing but developer tooling hasn't kept pace.",
+      "existing_solution": "No dedicated third-party SDK exists. Developers must use raw BLE + protobuf against Meshtastic firmware directly. The official app is open source but not designed as a platform for third-party integration.",
+      "social_hook": "You can build a GPS tracker that works 20 miles from the nearest cell tower for $30 in hardware \u2014 but the software integration is a nightmare nobody has solved yet.",
+      "content_angle": "Tutorial/deep-dive: 'Building on top of Meshtastic: what the docs don't tell you' \u2014 covering BLE quirks, protobuf versioning, and real-world integration lessons. Would attract both the outdoor tech and IoT developer audiences.",
+      "product_angle": "A Meshtastic developer SDK (React Native / Flutter / native iOS+Android) that abstracts BLE connection management, handles protobuf schema versioning across firmware releases, and exposes a clean API for position, telemetry, and messaging. Could monetize via paid tier, support contracts for emergency-comms orgs, or white-label licensing.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.427609",
+      "last_seen": "2026-03-30T08:21:22.050038",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_47a1ea",
+      "topic": "Google Sheets as a no-code/low-code backend for rapid app development",
+      "category": "Developer Tools / No-Code Backend",
+      "signal_count": 2,
+      "max_intensity": 68,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 36,
+        "path_b": 70,
+        "path_c": 53
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "The 'vibe coding' wave (early 2025) has created a massive new cohort of builders who can generate frontend code via LLMs but hit a wall at backend/data persistence \u2014 this is a direct response to that inflection point",
+      "existing_solution": "Airtable API, Glide, AppSheet, raw Google Sheets API, Retool \u2014 but all require more setup or cost more than a Sheets-native thin wrapper",
+      "social_hook": "What if your Google Sheet was already your database? No Supabase, no Firebase, no schema \u2014 just ship.",
+      "content_angle": "Tutorial or video: 'Build a full CRUD app in 10 minutes using only Google Sheets as your backend' targeting vibe coders on YouTube/TikTok",
+      "product_angle": "A hosted middleware service that exposes any Google Sheet as a typed REST API with auth tokens, rate limiting, and webhook support \u2014 monetizable via usage tiers targeting indie hackers and small teams",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.428304",
+      "last_seen": "2026-03-30T08:21:22.050103",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_7d7fbc",
+      "topic": "Multi-agent AI coding workflow management with terminal multiplexing",
+      "category": "Developer Tools / AI Coding Infrastructure",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 35,
+        "path_b": 69,
+        "path_c": 52
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "Claude Code, OpenAI Codex CLI, and Gemini CLI all launched or matured in 2024-2025, creating a sudden wave of developers running agentic coding sessions. Git worktree-based parallel agent workflows are a pattern that emerged in early 2025 and tooling is still catching up.",
+      "existing_solution": "tmux/zellij (no AI awareness), Warp terminal (some AI features, no multi-agent orchestration), Claude Code's native UI (single session), various tmux scripts. No polished cross-platform solution with GitHub integration and worktree-native UX existed before tools like this.",
+      "social_hook": "What if your terminal knew which AI agent was working on which branch, showed you the PR status, and pinged you when it needed input \u2014 like a project manager for your coding agents?",
+      "content_angle": "Tutorial: 'How to run Claude Code, Codex, and Gemini in parallel on the same repo using git worktrees' \u2014 would attract massive search traffic from developers trying to maximize AI coding throughput.",
+      "product_angle": "A polished, hosted or Electron-wrapped version of this concept with team collaboration features (shared worktree comments, agent session handoff, cost tracking per agent) could be a strong B2B SaaS play targeting engineering teams already paying for multiple AI coding subscriptions.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.429579",
+      "last_seen": "2026-03-30T08:21:22.050336",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_a513bb",
+      "topic": "AI-generated on-demand software / prompt-to-app operating environment",
+      "category": "Developer Tools / AI Infrastructure",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 35,
+        "path_b": 69,
+        "path_c": 52
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "LLM code generation has reached sufficient quality (~90% first-attempt success claimed) to make this viable now. Coincides with broad interest in agentic AI, WebAssembly sandboxing maturity, and growing frustration with bloated app ecosystems. The 'generative OS' concept is being explored by multiple teams simultaneously.",
+      "existing_solution": "Partial alternatives include Open Interpreter (LLM executing code in a shell), Replit AI, GitHub Copilot for code generation, and no-code platforms \u2014 but none offer a full OS-level sandboxed agent runtime with IPC, persistence, and a community store as a unified environment.",
+      "social_hook": "What if your computer had no apps installed \u2014 and you just described what you needed, and it appeared in seconds? That's what this person built.",
+      "content_angle": "The death of the app store: a deep-dive into whether prompt-native operating systems could replace traditional software distribution, using Pneuma as a case study. Explore the 90% success rate claim, WASM sandboxing tradeoffs, and what happens to software UX when creation is instant.",
+      "product_angle": "A managed cloud or enterprise version of this runtime \u2014 where teams can generate, share, and version internal tools via natural language without IT overhead. Alternatively, an SDK/API layer exposing the Rust\u2192WASM\u2192Wasmtime pipeline so other developers can embed generative app creation into their own platforms.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.431158",
+      "last_seen": "2026-03-30T08:21:22.050401",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_80d5d1",
+      "topic": "Free native RISC-V CI runners on GitHub via RISE project",
+      "category": "Developer Infrastructure / CI-CD",
+      "signal_count": 2,
+      "max_intensity": 58,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 34,
+        "path_b": 68,
+        "path_c": 51
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "RISC-V adoption is accelerating in 2024-2025 with SiFive, Milk-V, and others shipping hardware; Linux distros (Debian, Fedora, Ubuntu) are ramping RISC-V support; this CI offering validates growing developer demand",
+      "existing_solution": "QEMU-based emulation in CI (slow, imperfect), cross-compilation toolchains, self-hosted physical RISC-V boards, Scaleway RISC-V cloud instances (limited availability)",
+      "social_hook": "You can now run native RISC-V CI on GitHub for free \u2014 no emulation, no cross-compilation hacks, no hardware required",
+      "content_angle": "Write a guide: 'How to set up native RISC-V CI for your open-source project in 10 minutes using RISE runners' \u2014 targets maintainers who have been avoiding RISC-V support due to CI friction",
+      "product_angle": "Opportunity for a managed RISC-V CI/CD service with broader hardware SKUs, longer job timeouts, private repo support, and SLA guarantees for commercial teams that need more than the free tier offers",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.434534",
+      "last_seen": "2026-03-30T08:21:22.050469",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_c5f941",
+      "topic": "AI coding agent safety and reliability \u2014 destructive autonomous actions",
+      "category": "AI/Developer Tools",
+      "signal_count": 2,
+      "max_intensity": 82,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 51,
+        "path_b": 58,
+        "path_c": 67
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Agentic coding tools (Claude Code, Devin, Cursor agents, Copilot Workspace) are in rapid adoption in 2025. This incident surfaces a systemic trust and safety gap at exactly the moment enterprises and developers are deciding whether to adopt these tools. The window for a safety/guardrail product is open right now.",
+      "existing_solution": "No dedicated guardrail product for agentic coding tools exists at scale. Some users manually use Docker containers, restricted permissions, or pre-commit hooks, but nothing purpose-built for intercepting AI agent destructive actions.",
+      "social_hook": "Your AI coding assistant just silently ran `git reset --hard` on your production repo. Every. 10. Minutes. This is why we need agent guardrails before we hand over the keys.",
+      "content_angle": "Write-up: 'The 5 most dangerous commands an AI coding agent can run \u2014 and how to protect yourself today.' Or: 'Why agentic AI needs a circuit breaker, not just a sandbox.'",
+      "product_angle": "An agent safety middleware / proxy layer that sits between agentic coding tools and the filesystem/shell \u2014 intercepts destructive commands (rm -rf, git reset --hard, DROP TABLE), logs all actions, requires human confirmation above a risk threshold, and provides one-click rollback. Could be a CLI wrapper, VS Code extension, or cloud-hosted sandbox. B2B angle: enterprise compliance and audit trail for AI agent actions.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.422505",
+      "last_seen": "2026-03-30T08:21:22.050863",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_4dc971",
+      "topic": "AI coding assistant injecting unsolicited advertisements into developer workflows",
+      "category": "AI Tools / Developer Trust / Privacy",
+      "signal_count": 2,
+      "max_intensity": 82,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 51,
+        "path_b": 58,
+        "path_c": 67
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Microsoft/GitHub Copilot is under intense scrutiny as it scales monetization; this incident arrives amid broader debates about AI tool trustworthiness and vendor lock-in, making it a flashpoint moment",
+      "existing_solution": "No known tool specifically audits AI coding suggestions for non-code injections; Copilot competitors (Cursor, Codeium, Claude) could capitalize on trust differentiation",
+      "social_hook": "Your AI coding assistant is now editing your PRs to insert ads \u2014 the line between 'helpful tool' and 'compromised dependency' just got crossed",
+      "content_angle": "Write-up: 'The day AI coding assistants stopped being tools and became ad platforms' \u2014 covering the incident, implications for enterprise security, and what developers should audit in their AI-assisted PRs",
+      "product_angle": "AI suggestion auditor: a lightweight IDE plugin or CI check that diffs AI-accepted suggestions against pure code patterns, flagging promotional language, external URLs, or non-functional text injections before merge",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.422737",
+      "last_seen": "2026-03-30T08:21:22.051033",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_7ed7a8",
+      "topic": "AI agent orchestration and verification control plane for software development",
+      "category": "Developer Tools / AI Engineering",
+      "signal_count": 2,
+      "max_intensity": 52,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 33,
+        "path_b": 67,
+        "path_c": 50
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "Agentic coding tools (Claude Code, Cursor, Codex) are hitting mainstream adoption in 2025, and the verification/governance bottleneck is a widely discussed pain point. 'Harness Engineering' as a concept is brand new from OpenAI, making this a timely positioning opportunity.",
+      "existing_solution": "Partial: LangGraph, CrewAI, and AutoGen address multi-agent orchestration but are Python-heavy and cloud-oriented. No dominant local-first, Rust-based, SQLite-backed control plane for shell-agent workflows exists. CI/CD tools (GitHub Actions, Harness.io) address adjacent needs but not agentic loop governance.",
+      "social_hook": "The bottleneck in AI coding isn't code generation anymore \u2014 it's verification. This dev built a local control plane so AI agents can test, fail, fix, and retest themselves without a human babysitting every step.",
+      "content_angle": "Write-up: 'The hidden bottleneck of AI coding tools is verification, not generation \u2014 and here's how one developer automated it away with a local-first agent control plane'",
+      "product_angle": "A local-first, privacy-respecting agent orchestration layer that wraps shell-based AI coding agents with structured task state, test plan enforcement, auto-retry loops, and audit logs \u2014 targeting developers who want agentic workflows without cloud lock-in or Python dependency hell",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.434815",
+      "last_seen": "2026-03-30T08:21:22.050654",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_f23a75",
+      "topic": "Cross-agent session handoff between AI coding assistants (Claude Code, Codex, OpenCode)",
+      "category": "Developer Tools / AI Coding Workflows",
+      "signal_count": 2,
+      "max_intensity": 52,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 33,
+        "path_b": 67,
+        "path_c": 50
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "Claude Code, Codex CLI, and OpenCode all launched or gained significant traction in 2024-2025. The multi-agent coding workflow space is exploding and session portability is an unsolved problem at exactly the moment these tools are proliferating.",
+      "existing_solution": "rses-cli (this tool) \u2014 but it's a one-person npm package with 1200 lines and minimal adoption. No major player (Anthropic, OpenAI, OpenCode) has built native cross-agent session handoff.",
+      "social_hook": "You can now switch your AI coding agent mid-task without losing context \u2014 like git stash but for your AI's brain",
+      "content_angle": "Write about the emerging problem of 'agent lock-in' \u2014 how each AI coding tool traps your session context, why that's a growing pain as developers use multiple agents, and how session portability could become the next battleground in developer tooling",
+      "product_angle": "A universal session layer / context broker for AI coding agents \u2014 either a standalone product or an open protocol. Could expand beyond CLI tools to include Cursor, Copilot, Windsurf. Monetizable as a SaaS sync layer, IDE plugin, or enterprise context management platform.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.435471",
+      "last_seen": "2026-03-30T08:21:22.050724",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_83f2b3",
+      "topic": "JavaScript runtime embedded in Erlang/OTP VM for supervised JS execution",
+      "category": "Developer Tools / Runtime Infrastructure",
+      "signal_count": 2,
+      "max_intensity": 52,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 33,
+        "path_b": 67,
+        "path_c": 50
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "Growing interest in BEAM-native full-stack development (Phoenix LiveView momentum, Elixir adoption growth), combined with developer fatigue around Node.js complexity and JavaScript toolchain sprawl. The 'no Node.js' angle resonates with current sentiment.",
+      "existing_solution": "Running Node.js as a separate service via ports/System.cmd, using Rustler NIFs, or Cloudflare Workers-style sandboxing. No existing solution offers native OTP supervision of JS runtimes.",
+      "social_hook": "What if your JavaScript ran inside Erlang's fault-tolerant supervision tree \u2014 restartable, sandboxed, and able to call Elixir directly with no JSON overhead?",
+      "content_angle": "Write-up: 'The hidden cost of JavaScript in your Elixir app \u2014 and how to bring it inside OTP' targeting Elixir/Phoenix developers frustrated with maintaining a parallel Node.js process.",
+      "product_angle": "Productize the sandboxed user-code execution angle: a hosted service for running untrusted JavaScript with OTP-grade isolation and resource limits \u2014 targeting SaaS platforms that need plugin/scripting systems.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.435906",
+      "last_seen": "2026-03-30T08:21:22.050797",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_483e60",
+      "topic": "AI music generation analytics and scene intelligence",
+      "category": "AI Music / Creator Economy",
+      "signal_count": 1,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": true,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 39,
+        "path_b": 67,
+        "path_c": 56
+      },
+      "recommended_path": "B",
+      "multi_path": [
+        "B"
+      ],
+      "is_timely": true,
+      "timely_context": "AI music generation is in explosive early growth (Suno, Udio launched/scaled in 2024); the scene lacks any standardized metrics or discovery infrastructure \u2014 this is the early-adopter data-collection phase before a market matures",
+      "existing_solution": "No known dedicated AI music analytics platform exists. General music analytics tools (Chartmetric, Soundcharts) don't index AI-generated content specifically.",
+      "social_hook": "Someone manually tracked 50,000 AI songs to understand a scene that has no official scoreboard \u2014 that's both impressive and a massive gap signal",
+      "content_angle": "Write-up or thread: 'What 50,000 AI songs reveal about where AI music is actually going' \u2014 data journalism angle with viral potential across AI, music, and tech audiences",
+      "product_angle": "AI Music Analytics Platform \u2014 leaderboards, trend detection, style clustering, artist growth tracking, and virality scores for AI-generated music. Monetize via creator subscriptions, label intelligence reports, or API access.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T08:21:22.040855",
+      "last_seen": "2026-03-30T08:21:22.062931",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_3ca9de",
+      "topic": "Detecting and handling AI assistant usage during technical job interviews",
+      "category": "HR / Recruiting / Interview Process",
+      "signal_count": 2,
+      "max_intensity": 78,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 50,
+        "path_b": 57,
+        "path_c": 66
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "AI interview cheating tools (e.g., Interview Coder, Final Round AI) went viral in early 2025, making this a hot and unresolved problem for hiring teams globally right now",
+      "existing_solution": "Some interview platforms (HireVue, CoderPad) have basic proctoring, but none reliably detect AI overlay tools or real-time LLM prompting in video calls. No dominant solution exists.",
+      "social_hook": "Hiring managers are rejecting candidates on gut instinct because there's no real tool to catch AI cheating \u2014 and that's a legal and fairness disaster waiting to happen",
+      "content_angle": "Write a guide: '5 interview question formats that AI assistants can't fake' or 'How to redesign your technical interview to be AI-cheat-resistant'",
+      "product_angle": "An interview intelligence layer (browser extension or video call plugin) that scores response patterns \u2014 latency, eye movement via webcam, speech cadence, verbosity \u2014 to flag likely AI-assisted answers with an audit trail for HR",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.423697",
+      "last_seen": "2026-03-30T08:21:22.051099",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_bed3dd",
+      "topic": "Cloudflare bot detection interfering with ChatGPT's React-based UI input fields",
+      "category": "Developer Tools / Web Performance / Privacy",
+      "signal_count": 2,
+      "max_intensity": 78,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 50,
+        "path_b": 57,
+        "path_c": 66
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "ChatGPT is at peak cultural relevance; Cloudflare is ubiquitous infrastructure; React dominates frontend. The intersection of all three in a privacy/performance scandal is a perfect storm for viral developer discourse in late 2024/2025.",
+      "existing_solution": "No known clean solution \u2014 Cloudflare's Turnstile and bot management are opaque; React DevTools can observe state but no tool exists to audit or block third-party script access to React fiber trees in production.",
+      "social_hook": "Cloudflare is literally reading your React app's internal state before letting you type \u2014 and most developers have no idea this is happening on their sites.",
+      "content_angle": "Deep-dive technical explainer: 'How Cloudflare's bot detection hooks into React internals \u2014 and what it means for your app's privacy and UX.' Could include proof-of-concept, fiber tree inspection demo, and comparison of bot detection approaches.",
+      "product_angle": "1) A browser extension or devtools plugin that audits third-party script access to React/Vue/Angular component state in real time. 2) A privacy-first bot detection SDK that operates outside the JS framework layer. 3) A CSP/subresource integrity monitoring SaaS that alerts when injected scripts touch framework internals.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.423942",
+      "last_seen": "2026-03-30T08:21:22.051171",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_d10c26",
+      "topic": "Apple Silicon M4/M5 HiDPI scaling limitation on 4K external displays",
+      "category": "Hardware / Display Technology",
+      "signal_count": 2,
+      "max_intensity": 74,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 49,
+        "path_b": 56,
+        "path_c": 66
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "M4 and M5 Apple Silicon chips are newly released or recently shipping; this is an early-adopter pain point that will grow as more users upgrade to the latest Mac hardware.",
+      "existing_solution": "BetterDisplay and SwitchResX offer partial workarounds but are not purpose-built for this specific M4/M5 HiDPI constraint, leaving a gap for a targeted solution.",
+      "social_hook": "You just spent $2,000+ on the latest MacBook Pro with M4/M5 and your 4K monitor looks worse than before \u2014 here's why Apple's newest chips have a hidden display limitation.",
+      "content_angle": "Explainer: 'Why your 4K monitor looks blurry on M4/M5 Macs and what you can do about it' \u2014 high SEO value as a how-to guide targeting new Mac buyers hitting this issue.",
+      "product_angle": "A lightweight, purpose-built macOS utility specifically targeting M4/M5 HiDPI scaling that auto-detects affected display configurations and applies the correct fix \u2014 could be sold as a one-time purchase or low-cost subscription on Gumroad or the Mac App Store.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.424428",
+      "last_seen": "2026-03-30T08:21:22.051238",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_fc9956",
+      "topic": "Small business mentorship and expense management for franchise convenience store operators in the Philippines",
+      "category": "Small Business / Retail Operations",
+      "signal_count": 1,
+      "max_intensity": 52,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 49,
+        "path_b": 50,
+        "path_c": 66
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Franchise retail is growing rapidly in the Philippines, with convenience store franchises (7-Eleven, Ministop, etc.) being heavily marketed to middle-class investors. Many first-time operators lack operational training post-launch.",
+      "existing_solution": "Generic YouTube content, ChatGPT, and broad Facebook groups exist but lack localized, franchise-specific, structured mentorship. SCORE-equivalent PH programs (DTI, Go Negosyo) exist but are not well-known or easily accessible.",
+      "social_hook": "Thousands of Filipinos buy into convenience store franchises every year \u2014 but the franchisor stops holding your hand after onboarding. Who's actually helping these operators survive month 1\u201312?",
+      "content_angle": "Content series: 'Surviving Your First Year as a Franchise Operator in the Philippines' \u2014 covering overhead ratios, staffing costs, shrinkage control, and break-even timelines with real operator stories",
+      "product_angle": "A localized PH small business mentorship platform or cohort program pairing first-time franchise operators with experienced multi-unit owners \u2014 could be monetized via subscription, one-time coaching fees, or community membership. Niche enough to differentiate from generic business coaching.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T08:21:22.042834",
+      "last_seen": "2026-03-30T08:21:22.062991",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_6379ce",
+      "topic": "MCA (Merchant Cash Advance) rate benchmarking for small business owners",
+      "category": "Small Business Finance / Alternative Lending",
+      "signal_count": 1,
+      "max_intensity": 52,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 49,
+        "path_b": 25,
+        "path_c": 66
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Small business credit tightening in 2024-2025 has pushed more owners toward alternative lenders like MCAs. Rising awareness of predatory lending terms is creating demand for transparent rate comparison tools and educational content.",
+      "existing_solution": "Scattered Reddit threads, NerdWallet/Bankrate articles with generic ranges, and broker sites with obvious conflicts of interest. No neutral, real-time MCA rate benchmarking tool exists for borrowers.",
+      "social_hook": "Most small business owners don't realize 30% APR on an MCA is actually considered 'good' \u2014 typical factor rates translate to 40\u2013150% APR. This information asymmetry is the core pain.",
+      "content_angle": "Article or video: 'MCA APR Decoder: What 30%, 60%, and 150% Actually Mean for Your Business' \u2014 with a factor rate to APR calculator and lender comparison table. Targets high-intent search traffic from business owners evaluating offers.",
+      "product_angle": "A neutral MCA rate comparison tool where business owners input their offer terms (factor rate, holdback %, term) and get an honest APR calculation plus percentile ranking vs. market rates. Monetizable via lender referrals or a freemium advisory model.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T08:21:22.043115",
+      "last_seen": "2026-03-30T08:21:22.063055",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_977fda",
+      "topic": "UGC creator burnout and platform fatigue \u2014 seeking better brand connection methods",
+      "category": "Creator Economy / Freelance Marketplaces",
+      "signal_count": 1,
+      "max_intensity": 52,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 49,
+        "path_b": 50,
+        "path_c": 66
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "UGC coaching hype peaked 2022-2023 and is now visibly deflating \u2014 creators who stayed are actively looking for what comes next, making this a transition-moment opportunity",
+      "existing_solution": "Billo, Insense, JoinBrands, Fiverr \u2014 but all criticized for exactly the pay-to-pitch, low-quality-brand, high-friction problems described here",
+      "social_hook": "The UGC gold rush is over \u2014 but the actual need (brands need authentic content, creators need deals) hasn't gone away. The platforms just failed both sides.",
+      "content_angle": "Post-hype UGC survival guide: how real creators are finding brand deals without the sketchy apps and $997 coaching courses",
+      "product_angle": "A curated, vetted creator-brand matching tool with transparent pricing, no pitch fees, and quality brand filtering \u2014 positioned as the 'anti-Billo' for serious UGC creators",
+      "source_urls": [],
+      "first_seen": "2026-03-30T08:21:22.043435",
+      "last_seen": "2026-03-30T08:21:22.063307",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_47acb1",
+      "topic": "AI coding assistant frustration: incomplete implementations, yes-man behavior, and dependency loops",
+      "category": "Developer Tools / AI Productivity",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 49,
+        "path_b": 56,
+        "path_c": 65
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Vibe coding exploded in early 2025 with Cursor, Windsurf, Claude, and GPT-4o. As the honeymoon phase ends for early adopters (~2-3 months in), disillusionment posts like this are proliferating. The market is at peak adoption but pre-trust-collapse \u2014 a critical window for a reliability-focused alternative.",
+      "existing_solution": "Partial: tools like Cursor with rules files, Claude Projects with persistent context, and frameworks like Aider or Devin attempt continuity \u2014 but none solve the 'completion accountability' problem the poster describes. No tool currently audits whether the model actually implemented all stated requirements.",
+      "social_hook": "Everyone's talking about vibe coding. Nobody's talking about vibe coding's dirty secret: the AI knows exactly what you need and gives you just enough to keep you subscribed.",
+      "content_angle": "Essay or video: 'Why AI coding assistants are designed to never finish your project' \u2014 exploring the economic incentive misalignment between per-token/subscription models and full project completion. High shareability among developers feeling the same frustration.",
+      "product_angle": "A requirements-accountability layer for AI coding: paste your spec, the tool breaks it into trackable units, monitors each LLM session for coverage gaps, flags deferred or omitted items, and gives you a completion score. Could be a VS Code extension, a wrapper around Cursor/Claude, or a standalone project manager for vibe coders.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.425659",
+      "last_seen": "2026-03-30T08:21:22.051443",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_20d11b",
+      "topic": "AI facial recognition false arrest / wrongful identification",
+      "category": "AI Safety / Civil Liberties / Legal Tech",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 49,
+        "path_b": 31,
+        "path_c": 65
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "AI facial recognition wrongful arrests are accelerating in frequency and media coverage, with multiple documented cases now creating legislative pressure and public awareness. This is a compounding story with growing momentum heading into election cycles where AI regulation is a live issue.",
+      "existing_solution": "ACLU litigation, scattered academic audits (e.g. MIT Media Lab Gender Shades), some state-level bans (Illinois BIPA, some city bans). No scalable consumer-facing product for individuals to audit, contest, or monitor their facial recognition exposure.",
+      "social_hook": "A woman in Tennessee was wrongfully arrested for crimes committed in North Dakota \u2014 because an AI said so. No human verified it. This is not a bug, it's the system working as designed.",
+      "content_angle": "Explainer: 'How AI facial recognition gets people arrested \u2014 and why it keeps happening to the same demographics.' Data-driven breakdown of false positive rates by race and gender, mapped to real cases. High viral potential across tech, legal, and social justice audiences.",
+      "product_angle": "1) Legal defense toolkit / SaaS for public defenders to challenge facial recognition evidence in court. 2) Personal facial recognition exposure audit tool \u2014 checks if your face is in law enforcement databases or has been flagged. 3) B2G compliance auditing platform for municipalities required to validate FR accuracy before deployment. 4) Wrongful arrest case aggregation platform to support class action litigation.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.425829",
+      "last_seen": "2026-03-30T08:21:22.051518",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_39de76",
+      "topic": "LinkedIn excessive memory usage / bloated web apps",
+      "category": "Developer Tools / Productivity / Web Performance",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 49,
+        "path_b": 56,
+        "path_c": 65
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Web app bloat is a recurring flashpoint on HN and tech Twitter; this post is actively trending with 706 points in 22h, riding a broader wave of anti-bloat sentiment following similar complaints about Slack, Notion, and Electron apps",
+      "existing_solution": "Tab suspender extensions (The Great Suspender, OneTab) partially help but don't fix root cause. No dedicated lightweight LinkedIn client exists. LinkedIn's own app is also considered bloated.",
+      "social_hook": "LinkedIn uses more RAM than most video games. Two tabs = 2.4 GB. This is what happens when no one is accountable for performance at scale.",
+      "content_angle": "Write-up or video: 'Why LinkedIn uses 2.4 GB of RAM (and what you can do about it)' \u2014 technical teardown of LinkedIn's JS bundle, tracking scripts, and rendering pipeline. High SEO and shareability among developers and power users.",
+      "product_angle": "Browser extension that aggressively prunes LinkedIn's DOM, blocks non-essential scripts, and caps memory usage \u2014 marketed as 'LinkedIn Lite'. Alternatively, a minimal read/apply interface built on LinkedIn's API for job seekers who only need core functionality. Freemium with power features.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.425993",
+      "last_seen": "2026-03-30T08:21:22.051580",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_ff58f6",
+      "topic": "Cognitive Dark Forest \u2014 AI-generated content degrading epistemic trust online",
+      "category": "AI / Information Ecosystem",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 49,
+        "path_b": 31,
+        "path_c": 65
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Post-ChatGPT content explosion has flooded the web with AI-generated text, making authentic human expertise and genuine discourse increasingly hard to find \u2014 this concept is gaining traction as a named phenomenon right now",
+      "existing_solution": "Partial solutions exist: AI detectors (GPTZero, Originality.ai) are unreliable; some platforms add human-verification badges; niche forums and newsletters position themselves as curated human spaces \u2014 but no dominant solution addresses the systemic trust collapse",
+      "social_hook": "The internet is becoming a Cognitive Dark Forest \u2014 everyone suspects everyone else of being AI, so authentic humans go silent or hide, accelerating the very problem they fear",
+      "content_angle": "Explainer or essay: 'What is the Cognitive Dark Forest and how do you find real human signal in an AI-flooded internet?' \u2014 high shareability across tech, media, and philosophy audiences",
+      "product_angle": "Verified-human content layer or community platform (think Stack Overflow Teams meets Substack with cryptographic or social proof of human authorship); alternatively, a browser extension or feed reader that surfaces high-trust human-written content using behavioral/provenance signals rather than AI detection",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.426210",
+      "last_seen": "2026-03-30T08:21:22.051646",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_2c2673",
+      "topic": "Estonian e-Residency for SaaS founders \u2014 real-world experience and pitfalls",
+      "category": "Business Infrastructure / Founder Tools",
+      "signal_count": 2,
+      "max_intensity": 68,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 48,
+        "path_b": 55,
+        "path_c": 65
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Post-pandemic remote-first wave and EU digital single market push have renewed interest in e-Residency. Banking access (LHV, Wise Business, Revolut Business) has evolved significantly, making old guides outdated and creating fresh demand for current information.",
+      "existing_solution": "Leapin Digital Keys, e-Residency marketplace partners, and scattered blog posts (e.g., on Indie Hackers) exist but are often promotional, outdated, or not SaaS-specific. No dominant trusted resource.",
+      "social_hook": "German founder asks if Estonian e-Residency is actually worth it \u2014 116 HN founders weigh in with the real story nobody tells you",
+      "content_angle": "Write 'The Honest 2024 Guide to Estonian e-Residency for SaaS Founders' \u2014 covering banking reality, Stripe compatibility, VAT OSS, accounting costs, and when it's NOT worth it. Publish on Indie Hackers or your own blog with SEO targeting 'Estonian e-residency SaaS' and 'e-residency worth it.'",
+      "product_angle": "A concierge service or productized consulting offer specifically for EU SaaS founders: flat-fee Estonian company setup + banking intro + accounting partner referral + ongoing compliance checklist. Could also be a paid community or Notion-based knowledge base with affiliate revenue from accounting/banking partners.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.428035",
+      "last_seen": "2026-03-30T08:21:22.051844",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_bbf602",
+      "topic": "2FA authenticator app recommendations for developers",
+      "category": "Security / Developer Tools",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 47,
+        "path_b": 29,
+        "path_c": 64
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "GitHub's mandatory 2FA rollout with a 45-day enrollment window creates an urgent, deadline-driven adoption event. Millions of contributors are actively searching for solutions right now. This is a narrow but high-volume window.",
+      "existing_solution": "Aegis (Android, open source), Raivo (iOS), Ente Auth (cross-platform), Google Authenticator, Authy, 1Password/Bitwarden built-in TOTP. No clear winner \u2014 market is fragmented and trust/backup/sync features vary widely.",
+      "social_hook": "GitHub just made 2FA mandatory for all contributors \u2014 here's the honest breakdown of every authenticator app worth using (and the ones to avoid)",
+      "content_angle": "Head-to-head comparison of Aegis vs Raivo vs Ente Auth vs Authy for developers: backup/recovery, cross-platform sync, open source trust, and GitHub compatibility. Timed to the GitHub 2FA mandate deadline.",
+      "product_angle": "A developer-focused 2FA migration assistant \u2014 a lightweight tool that helps users audit existing TOTP accounts, export/import between authenticator apps safely, and verify GitHub 2FA setup end-to-end. Could also be a curated 'GitHub 2FA setup guide' as a lead-gen product.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.431442",
+      "last_seen": "2026-03-30T08:21:22.051912",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_1b8035",
+      "topic": "Claude API reliability and overload errors (529)",
+      "category": "AI Infrastructure / Developer Tools",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 47,
+        "path_b": 29,
+        "path_c": 64
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Claude API demand is surging in 2024-2025 as Anthropic's models (Claude 3.5 Sonnet, Claude 3 Opus) are widely regarded as top-tier. Overload errors signal rapid adoption outpacing infrastructure, a recurring complaint in developer communities.",
+      "existing_solution": "Anthropic offers rate limit tiers and priority access for higher-paying customers, but no transparent status page or automatic fallback routing. Some developers manually implement retry logic or route to OpenAI as a fallback.",
+      "social_hook": "Your AI product just went down because Anthropic is overloaded \u2014 and there's nothing you can do about it. Here's how developers are building resilience into LLM-dependent apps.",
+      "content_angle": "Guide: Building LLM-agnostic fallback routing so a 529 from Claude doesn't take down your product \u2014 with code examples for switching to GPT-4 or Gemini automatically",
+      "product_angle": "An LLM gateway/proxy service that provides automatic failover across multiple AI providers (Claude, OpenAI, Gemini, Mistral) with unified API, rate limit management, and uptime SLAs \u2014 essentially a 'Cloudflare for AI APIs'",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.431572",
+      "last_seen": "2026-03-30T08:21:22.051973",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_96407e",
+      "topic": "AI coding assistant subscription comparison: Claude vs ChatGPT $20/month tier",
+      "category": "AI Tools / Developer Productivity",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 47,
+        "path_b": 54,
+        "path_c": 64
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "GPT-4.5 and Claude 3.7 Sonnet both launched in early 2025, reshaping the competitive landscape. OpenAI's o3 and Anthropic's rate limit changes are actively shifting user preferences. This comparison is being relitigated constantly as capabilities shift.",
+      "existing_solution": "Partial: r/ClaudeAI and r/ChatGPT have community threads, but no authoritative, regularly-updated comparison resource exists. Sites like LMSYS Chatbot Arena rank models but don't address subscription value or rate limits. No product directly solves the routing/switching problem.",
+      "social_hook": "You're paying $20/month for an AI that rate-limits you to 5 messages every 5 hours \u2014 here's what actually happens when you switch",
+      "content_angle": "Monthly updated 'which $20 AI subscription is worth it for coders' breakdown \u2014 covering rate limits, code quality, planning mode, and verbosity across real workflows. High SEO and social shareability given the recurring decision cycle.",
+      "product_angle": "A lightweight AI router or subscription advisor that monitors your usage patterns and recommends (or switches between) Claude/ChatGPT/Gemini based on your current task type and remaining rate limits \u2014 or a unified $20/month aggregator that arbitrages across APIs.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.432101",
+      "last_seen": "2026-03-30T08:21:22.052038",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_709842",
+      "topic": "AI-assisted shallow learning vs. deep learning for engineers",
+      "category": "EdTech / AI Productivity",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 47,
+        "path_b": 29,
+        "path_c": 64
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "LLM adoption among engineers and knowledge workers is at peak saturation in 2024-2025, making the backlash against shallow AI use a culturally resonant and growing conversation.",
+      "existing_solution": "Partial solutions exist: Socratic tutoring prompts, tools like Khanmigo, Anki for retention, and custom GPT personas \u2014 but no mainstream product specifically positions itself as 'deep learning mode' vs. 'summary mode' for technical content.",
+      "social_hook": "'AI hasn't made us lazy \u2014 it's made lazy look productive. That's worse.'",
+      "content_angle": "Write a guide or video: 'Stop using AI as a TikTok for learning \u2014 here's how to use it for actual skill-building.' Frame the shift from 'summarize it' to 'debate it with me' as a concrete workflow engineers can adopt.",
+      "product_angle": "A learning tool or Chrome extension that intercepts passive AI summarization behavior and redirects users into active recall, Socratic dialogue, or implementation challenges \u2014 essentially a 'deep work mode' wrapper around LLMs for technical papers and documentation.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.432350",
+      "last_seen": "2026-03-30T08:21:22.052110",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_e73852",
+      "topic": "Microplastics research methodology contamination from lab gloves",
+      "category": "Scientific Research / Lab Equipment / Environmental Science",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 47,
+        "path_b": 29,
+        "path_c": 64
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Microplastics are at peak public and regulatory attention \u2014 EPA, EU, and WHO are actively setting policy based on research that may now be systematically biased upward. This finding could trigger a wave of replication studies and demand for contamination-free lab protocols.",
+      "existing_solution": "No widely adopted standard exists for glove-free or glove-controlled microplastics sampling. Some labs use nitrile alternatives like vinyl or neoprene, but no validated best-practice protocol has emerged.",
+      "social_hook": "The gloves scientists wear to protect against contamination may be the contamination \u2014 potentially inflating every microplastics study ever done in a lab.",
+      "content_angle": "Deep-dive explainer: 'How much of the microplastics panic is actually lab contamination?' \u2014 would perform strongly on science YouTube, Substack, and Twitter/X science accounts. Also strong as a policy-focused piece questioning regulatory thresholds built on potentially flawed data.",
+      "product_angle": "Opportunity for: (1) certified contamination-free sampling kits for microplastics research using non-shedding materials, (2) a protocol validation service or checklist SaaS for environmental labs, (3) alternative glove materials or glove-free handling tools marketed specifically to microplastics researchers, (4) a meta-analysis tool or database flagging studies with potential glove-contamination confounds.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.432872",
+      "last_seen": "2026-03-30T08:21:22.052177",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_a4f165",
+      "topic": "MacBook keyboard repair costs and alternatives",
+      "category": "Consumer Electronics / Repair",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 47,
+        "path_b": 54,
+        "path_c": 64
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Right to Repair legislation is gaining momentum in the US and EU, making Apple repair costs a hot political and consumer topic. Apple's recent Self Repair Program has been criticized as inadequate, keeping this issue in the news cycle.",
+      "existing_solution": "Apple Genius Bar (expensive), iFixit DIY kits (technically demanding), local third-party repair shops (inconsistent quality/availability), AppleCare+ (only if purchased upfront). No dominant affordable, trustworthy solution exists.",
+      "social_hook": "Why does fixing a $10 keyboard component cost $600 on a MacBook? The answer reveals everything wrong with Apple's repair monopoly.",
+      "content_angle": "Breakdown of MacBook keyboard repair costs vs. actual part costs, with a guide to all real alternatives ranked by cost/risk \u2014 highly shareable among MacBook owners who've faced this.",
+      "product_angle": "Vetted mail-in MacBook keyboard repair service with flat-rate transparent pricing and warranty; or a repair shop aggregator/marketplace with verified reviews specifically for Apple device repairs.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.433023",
+      "last_seen": "2026-03-30T08:21:22.052244",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_c65f09",
+      "topic": "Best tech stack for building games with kids (parent/mentor + child pair programming)",
+      "category": "EdTech / Kids Coding / Game Development",
+      "signal_count": 2,
+      "max_intensity": 52,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 45,
+        "path_b": 27,
+        "path_c": 62
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "AI coding tools (Claude Code, Codex) are making it newly plausible for non-programmers and kids to build real things fast \u2014 this creates fresh demand for 'AI-assisted kids game dev' workflows that didn't exist 2 years ago. The question explicitly mentions AI tooling as part of the stack.",
+      "existing_solution": "Scratch (MIT) is the dominant answer but feels 'babyish' to many 10-12 year olds. PICO-8 has a cult following but costs money and has a steep creative ceiling. Godot is too complex for a weekend. p5.js works but has no guided 'game' scaffolding. No product cleanly owns the 'adult + kid, one weekend, real game output' niche.",
+      "social_hook": "What's the best way to build a game with a kid in a single weekend? The answer isn't Scratch \u2014 and it's not Godot either.",
+      "content_angle": "Tutorial or YouTube video: 'We built a pink unicorn game in 4 hours using [X] \u2014 here's the exact setup, assets, and prompts we used.' Highly shareable among parents, educators, and hobbyist devs. Could also be a blog post comparing Scratch vs p5.js vs PICO-8 for the 'one weekend with a kid' constraint specifically.",
+      "product_angle": "A lightweight, AI-assisted game starter kit designed for adult-child pair programming: pre-wired templates (platformer, clicker, runner), curated free asset packs (including unicorns/fantasy themes), simple vocabulary, and Claude/GPT prompt templates a child can use to add features. Could be a $15-29 one-time purchase or a weekend workshop product. The gap is 'Scratch is too simple, Godot is too complex' \u2014 nothing owns the middle.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.435761",
+      "last_seen": "2026-03-30T08:21:22.052310",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_d84ba2",
+      "topic": "Employer-tied health insurance and healthcare access",
+      "category": "Healthcare / Employment Policy",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 45,
+        "path_b": 56,
+        "path_c": 60
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Post likely triggered by a high-profile healthcare or employment news event (e.g., mass layoffs, insurance denial story going viral); sentiment around employer-tied health insurance spikes sharply after such events",
+      "existing_solution": "ACA marketplace, COBRA, freelancer unions (e.g., Freelancers Union), health-share plans, PeopleKeep/HRA tools \u2014 but all are fragmented, confusing, and expensive relative to employer plans",
+      "social_hook": "2,251 upvotes on a blunt two-sentence comment signals massive latent agreement \u2014 this is a pressure point, not a niche opinion",
+      "content_angle": "Explainer content: 'What are your actual options if you lose employer health insurance?' or 'How to stay covered while freelancing or between jobs' \u2014 high search volume, evergreen frustration",
+      "product_angle": "A health insurance navigator/concierge for non-traditionally-employed people (freelancers, gig workers, early retirees, job-switchers) that compares ACA, health-shares, DPC, and short-term plans in plain language with cost modeling \u2014 monetizable via broker commissions or SaaS subscription",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.426796",
+      "last_seen": "2026-03-30T08:21:22.052383",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_ab8f75",
+      "topic": "Consumer backlash against touchscreen-only car interfaces; demand for physical controls in vehicles",
+      "category": "Automotive UX / Consumer Hardware Preferences",
+      "signal_count": 2,
+      "max_intensity": 68,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 44,
+        "path_b": 30,
+        "path_c": 60
+      },
+      "recommended_path": "C",
+      "multi_path": [
+        "C"
+      ],
+      "is_timely": true,
+      "timely_context": "Automakers like Tesla, GM, and Rivian have gone nearly all-touchscreen. Backlash is peaking as older tactile-control vehicles age out of the fleet. NHTSA has raised distracted driving concerns about touchscreen interfaces. A few brands (Mazda, some Hyundai/Kia models) are quietly marketing physical controls as a differentiator.",
+      "existing_solution": "Partial \u2014 Mazda and some European brands retain physical controls as a selling point. Aftermarket head units (Pioneer, Kenwood) add some tactile control but don't address HVAC. No mainstream retrofit product exists for adding physical HVAC/media controls to modern touchscreen-only vehicles.",
+      "social_hook": "1,500+ upvotes on a nostalgia post about a black-and-white radio screen \u2014 people aren't just nostalgic, they're genuinely frustrated with forced touchscreen adoption and the safety tradeoffs it creates.",
+      "content_angle": "Safety-focused content: 'Why touchscreen-only cars are a distracted driving hazard' \u2014 citing NHTSA data and this widespread consumer sentiment. High shareability across driving, tech-skeptic, and safety communities.",
+      "product_angle": "1) Aftermarket tactile control overlay/retrofit kit for common touchscreen HVAC/media systems. 2) A browser extension or app that aggregates and ranks new/used cars by physical control availability \u2014 a 'knobs and buttons' car finder. 3) A media brand or newsletter for 'anti-bloatware' car buyers. The retrofit hardware angle is the highest-value gap.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.428578",
+      "last_seen": "2026-03-30T08:21:22.052443",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_413cb8",
+      "topic": "Young military personnel making impulsive financial decisions before deployment",
+      "category": "Personal Finance / Military",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 43,
+        "path_b": 29,
+        "path_c": 59
+      },
+      "recommended_path": "C",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "Heightened geopolitical tension and active deployment cycles make this acutely relevant. The viral nature (28K upvotes, 2K+ comments in 12h) amplifies cultural moment around military financial literacy.",
+      "existing_solution": "Generic financial literacy apps (Mint, YNAB) and military-specific resources like USAA and MilLife exist but are clearly not reaching or resonating with young enlisted personnel in high-risk spending moments.",
+      "social_hook": "Young soldiers blowing their paychecks before deployment is a visceral, emotionally charged story that triggers simultaneous sympathy, outrage, and calls to action \u2014 extremely shareable across political and social spectrums.",
+      "content_angle": "Content around 'what young soldiers should actually do with their money before deployment' \u2014 covering SDP (Savings Deposit Program), TSP, life insurance, allotments \u2014 would capture massive search and social traffic right now.",
+      "product_angle": "A military-specific financial wellness app or pre-deployment financial checklist tool targeting 18-24 year old enlisted personnel \u2014 ideally with a 'deployment mode' that automates savings, locks discretionary spending, and provides peer-normed guidance. Could be B2B sold to bases or DoD.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.433892",
+      "last_seen": "2026-03-30T08:21:22.052504",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_ab3c77",
+      "topic": "Native video embedding for semantic search using Gemini Embedding 2",
+      "category": "AI / Video Search Infrastructure",
+      "signal_count": 2,
+      "max_intensity": 78,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 38,
+        "path_b": 57,
+        "path_c": 54
+      },
+      "recommended_path": "B",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "Gemini Embedding 2 with native video support was just released, making this a narrow first-mover window. The capability didn't exist at this cost/simplicity level before. Competitors building on older transcription-based stacks are now architecturally behind.",
+      "existing_solution": "Twelve Labs (purpose-built video search AI, $), AWS Rekognition (expensive, enterprise), manual frame captioning pipelines (DIY, slow). No cheap, self-hostable, natural-language-native video search existed before this capability.",
+      "social_hook": "You can now search hours of dashcam or security footage with plain English \u2014 'red truck running stop sign' \u2014 in under a second, for about $2.50 per hour of video indexed. No transcription. No tagging. Just ask.",
+      "content_angle": "Tutorial: 'How to build a searchable dashcam archive with Gemini Embedding 2 and ChromaDB' \u2014 targets dashcam owners, home security users, and developers. High SEO potential as people search for video search solutions post-Gemini launch.",
+      "product_angle": "Wrap this CLI into a desktop or web app targeting three high-value verticals: (1) dashcam/insurance evidence retrieval, (2) home security footage review, (3) sports/broadcast clip search. Charge per hour of footage indexed or monthly subscription. The $2.50/hr indexing cost leaves room for a 5-10x margin at prosumer pricing.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.422939",
+      "last_seen": "2026-03-30T08:21:22.052571",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_f6657e",
+      "topic": "Digital literacy and data privacy awareness gap among everyday users",
+      "category": "Cybersecurity / Digital Education",
+      "signal_count": 2,
+      "max_intensity": 52,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 41,
+        "path_b": 27,
+        "path_c": 57
+      },
+      "recommended_path": "C",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "AI tool proliferation (ChatGPT, etc.) is causing millions of non-technical users to casually share sensitive personal and third-party data across dozens of platforms. GDPR enforcement in Germany/EU adds regulatory urgency. Workplace data breaches via personal device misuse are rising.",
+      "existing_solution": "Partial: KnowBe4, corporate security awareness training, generic YouTube tutorials, BSI (German federal cybersecurity agency) public guides. No widely adopted, consumer-friendly, gamified, or AI-assisted privacy hygiene product exists for everyday users in German-speaking markets.",
+      "social_hook": "Millions of people are cycling through free AI tiers to avoid a \u20ac20/month subscription \u2014 and unknowingly feeding their personal data (and their kids' photos) to dozens of unknown models in the process.",
+      "content_angle": "Article or video: 'The hidden cost of using free AI tools: what you're actually paying with' \u2014 targeting German-speaking audiences frustrated by tech-illiterate behavior in their social or professional circles.",
+      "product_angle": "A simple, consumer-facing 'digital hygiene score' app or browser extension that audits app permissions, flags risky AI data-sharing habits, and provides plain-language explanations \u2014 localized for DACH market with GDPR framing. Could also be a short-course product (Udemy-style) specifically for non-technical adults or HR-mandated workplace training.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.436188",
+      "last_seen": "2026-03-30T08:21:22.060583",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_a335c1",
+      "topic": "Strait of Hormuz closure and stranded shipping vessels",
+      "category": "Geopolitical / Supply Chain Disruption",
+      "signal_count": 1,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": false,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 41,
+        "path_b": 29,
+        "path_c": 57
+      },
+      "recommended_path": "C",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "The Strait of Hormuz handles roughly 20% of global oil and LNG traffic. A closure or credible threat of closure is a high-urgency macro event affecting energy prices, shipping insurance (war risk premiums), commodity futures, and global supply chains in real time. This is a breaking or rapidly developing situation given the post age of 1 hour and rising feed placement.",
+      "existing_solution": "Bloomberg, Reuters, Lloyd's List, and MarineTraffic provide shipping and geopolitical coverage, but real-time aggregated impact analysis for non-institutional audiences is fragmented. Tools like Kpler or Vortexa exist for professionals but are expensive and inaccessible to retail traders, SMBs, or general public.",
+      "social_hook": "Which ships are stranded, what cargo they carry, and what that means for fuel prices, goods availability, and global markets \u2014 visualized in plain language for a general audience.",
+      "content_angle": "Real-time explainer content: 'What the Strait of Hormuz closure means for gas prices, shipping costs, and your supply chain' \u2014 maps, vessel trackers, commodity impact breakdowns. High shareability across finance, news, and geopolitics audiences.",
+      "product_angle": "Geopolitical supply chain risk alert tool for SMBs, importers/exporters, and retail commodity traders \u2014 aggregates chokepoint disruption signals (Hormuz, Suez, Panama Canal) with plain-language impact summaries and portfolio/inventory exposure scoring.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T08:21:22.036910",
+      "last_seen": "2026-03-30T08:21:22.062875",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_7edbab",
+      "topic": "Obscure Greek mythology figures lacking modern retellings or research resources",
+      "category": "Books & Media / Mythology",
+      "signal_count": 1,
+      "max_intensity": 38,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 1,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": true
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 31,
+        "path_b": 57,
+        "path_c": 39
+      },
+      "recommended_path": "B",
+      "multi_path": [],
+      "is_timely": false,
+      "timely_context": "Mythology retelling genre remains popular (Circe, Song of Achilles, Lore Olympus era), increasing demand for lesser-known figures as the well-known ones get saturated",
+      "existing_solution": "Theoi.com, Wikipedia, and academic texts like Pausanias's Descriptions of Greece contain fragments, but no modern retelling or consolidated creative resource exists for Pelasgus specifically",
+      "social_hook": "The most obscure figures in Greek mythology are the ones with the most untapped storytelling potential \u2014 here's why no one writes about them and what we're missing",
+      "content_angle": "Blog post or YouTube video: 'The forgotten first kings of Greek mythology: Pelasgus, Cecrops, and the autochthons nobody talks about' \u2014 targets writers and mythology fans hungry for underexplored material",
+      "product_angle": "A niche mythology research tool or newsletter that surfaces primary sources, academic papers, and creative works for obscure mythological figures \u2014 monetizable via Substack, Patreon, or a paid database for writers",
+      "source_urls": [],
+      "first_seen": "2026-03-30T08:21:22.044550",
+      "last_seen": "2026-03-30T08:21:22.063366",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_9a1a44",
+      "topic": "LLM-powered web scraping and structured data extraction",
+      "category": "Developer Tools / Data Infrastructure",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 37,
+        "path_b": 56,
+        "path_c": 53
+      },
+      "recommended_path": "B",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "LLM adoption in production pipelines is accelerating in 2024-2025. Web scraping reliability is a persistent pain point now compounded by anti-bot measures and dynamic JS-heavy sites. The LLM-as-parser pattern is emerging but lacks standardized tooling.",
+      "existing_solution": "Firecrawl, Apify, Diffbot, Browserbase, and raw LLM prompting exist but none offer a lightweight, open-source, schema-validated TypeScript library with partial recovery and LangChain compatibility in one package.",
+      "social_hook": "You're not bad at web scraping \u2014 you're just rebuilding the same broken pipeline every time. Here's why LLM extractors keep failing in production (and what actually fixes it).",
+      "content_angle": "Tutorial: 'Stop rewriting your web scrapers \u2014 how to build a resilient LLM extraction pipeline that survives site redesigns' targeting TypeScript/Node developers building data products.",
+      "product_angle": "Hosted SaaS version of this extractor with a visual schema builder, usage dashboard, webhook delivery, and managed anti-bot infrastructure \u2014 targeting non-engineers who need structured data from websites without writing code.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.424604",
+      "last_seen": "2026-03-30T08:21:22.052749",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_68888e",
+      "topic": "Markdown to email-safe HTML conversion tool",
+      "category": "Developer Tools / Email",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 37,
+        "path_b": 56,
+        "path_c": 53
+      },
+      "recommended_path": "B",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "Developer-led email tooling is surging with the rise of transactional email services (Resend, Loops, Postmark) and newsletter platforms; React Email and MJML have shown strong traction, validating appetite for better email authoring DX",
+      "existing_solution": "MJML, React Email, Maizzle, Premailer, Litmus Builder, and email service drag-and-drop editors \u2014 but none offer the simplicity of plain Markdown input",
+      "social_hook": "Why is writing a simple email in 2024 harder than building a website? Markdown should just work.",
+      "content_angle": "The absurdity of email HTML in 2024: why developers still suffer through table layouts and inline CSS, and how Markdown could finally fix it",
+      "product_angle": "A hosted API or CLI tool that converts Markdown to tested, responsive, email-client-safe HTML \u2014 potentially with a live preview, template system, and integrations with Resend/SendGrid/Postmark",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.424805",
+      "last_seen": "2026-03-30T08:21:22.060314",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_88d1a7",
+      "topic": "Video.js reboot - 88% smaller open source video player library",
+      "category": "Open Source / Web Development Tools",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 37,
+        "path_b": 56,
+        "path_c": 53
+      },
+      "recommended_path": "B",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "Private equity gutting open source projects is a hot narrative right now. The story of the original creator reclaiming the project resonates strongly with the current backlash against PE acquisition of developer tools. Beta launch timing creates urgency for early adopters.",
+      "existing_solution": "Legacy Video.js (bloated, undermaintained), Plyr, Vidstack, Media Chrome, HLS.js, Shaka Player \u2014 all fragmented with different trade-offs. No single dominant modern solution existed.",
+      "social_hook": "The original creator of a library used by billions of people monthly took it back from private equity and rebuilt it 88% smaller \u2014 with help from the maintainers of its top competitors.",
+      "content_angle": "Write about the PE-kills-open-source pattern and how this reboot is a case study in community-led recovery. Also strong angle: 'What 88% bundle size reduction means for web performance at scale.'",
+      "product_angle": "Opportunity for tooling around the new Video.js ecosystem: migration guides/codemods from legacy Video.js, plugin compatibility layers, performance benchmarking dashboards, or a hosted video player configuration/theming SaaS built on the new stack.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.424979",
+      "last_seen": "2026-03-30T08:21:22.060402",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_390b66",
+      "topic": "SQLite VFS for S3-backed cold query performance",
+      "category": "Developer Infrastructure / Cloud Storage",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 37,
+        "path_b": 56,
+        "path_c": 53
+      },
+      "recommended_path": "B",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "S3 Express One Zone launched in late 2023 with dramatically lower latency, making S3-native database architectures newly viable. Simultaneously, database-per-tenant SaaS patterns (popularized by Turso, Cloudflare D1, and others) are surging. This sits at the intersection of both trends.",
+      "existing_solution": "Turso (libSQL over HTTP), Cloudflare D1, LiteFS (distributed SQLite via FUSE), rqlite, and naive SQLite-on-S3 via FUSE mounts. None specifically optimize for cold-read latency with B-tree-aware S3 page grouping.",
+      "social_hook": "What if you could store 10,000 SQLite databases on S3 for pennies and still get sub-250ms query latency on cold reads? Someone built it in Rust.",
+      "content_angle": "Deep-dive: 'The economics of database-per-user SaaS \u2014 why S3-native SQLite changes the math on multi-tenant architecture costs.' Could benchmark turbolite vs. Turso vs. D1 vs. EBS-backed SQLite on cost-per-query at scale.",
+      "product_angle": "A managed, production-hardened version of this concept \u2014 a hosted SQLite-on-S3 service with automatic B-tree optimization, multi-region replication, and a simple SDK. Targets SaaS builders who want database-per-user isolation without per-user infrastructure costs. Pricing model: pay per query/GB stored, not per active database.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.425310",
+      "last_seen": "2026-03-30T08:21:22.060458",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_35fcd7",
+      "topic": "Privacy-first in-browser PDF editing tools",
+      "category": "Productivity / Privacy Tools",
+      "signal_count": 2,
+      "max_intensity": 72,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 37,
+        "path_b": 56,
+        "path_c": 53
+      },
+      "recommended_path": "B",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "Growing regulatory pressure (GDPR, HIPAA, CCPA) and heightened user awareness around data privacy make local-processing tools increasingly attractive. The 'files never leave your computer' value prop is resonating more than ever in 2024-2025.",
+      "existing_solution": "Adobe Acrobat Pro (expensive), ILovePDF/Smallpdf (server-side, privacy concerns), PDF24 (partially local), LibreOffice (clunky for PDF tasks). No dominant free, fully local, browser-based solution with 40+ tools exists.",
+      "social_hook": "'Most free PDF tools are secretly uploading your documents to their servers. Here's one that doesn't.'",
+      "content_angle": "Privacy expos\u00e9 angle: 'What really happens when you use free PDF tools online' \u2014 drives traffic to BreezePDF as the safe alternative. Also strong as a 'best free PDF tools' SEO play targeting high-intent searches.",
+      "product_angle": "The core product is validated. Monetization paths: (1) Pro tier with advanced features or higher file size limits, (2) Team/enterprise licensing for compliance-sensitive orgs, (3) CLI/SDK licensing for developers, (4) White-label for law firms, healthcare, or HR platforms that need privacy guarantees.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.425491",
+      "last_seen": "2026-03-30T08:21:22.060518",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_c5c414",
+      "topic": "Dark mode PDF rendering that preserves images and charts",
+      "category": "Developer Tools / Productivity / Reading",
+      "signal_count": 2,
+      "max_intensity": 68,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 36,
+        "path_b": 55,
+        "path_c": 53
+      },
+      "recommended_path": "B",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "Dark mode adoption has surged across OSes and apps since ~2019, but PDF tooling has lagged significantly. Researchers and students increasingly consume technical PDFs on screens for hours. Eye strain and screen health awareness is growing. PWA and browser-native tooling is now mature enough to make this viable without installs.",
+      "existing_solution": "Adobe Acrobat has a basic accessibility color inversion that destroys images. Browser extensions like Dark Reader apply CSS inversion globally and ruin charts. Dedicated apps like PDF Expert offer limited dark mode. None intelligently preserve embedded images while inverting text/background layers.",
+      "social_hook": "You've been reading PDFs wrong in dark mode \u2014 every tool you've used has been silently destroying your charts and diagrams. Here's why, and how one developer fixed it with a clever two-canvas trick.",
+      "content_angle": "Technical deep-dive on the three-layer rendering approach (CSS filter + image overlay + brightness detection) would resonate strongly on HN, dev Twitter, and YouTube channels covering browser APIs or PDF tooling. Personal story angle (reading books in a factory to escape it) is emotionally compelling for broader audiences.",
+      "product_angle": "Opportunity to productize as: (1) a browser extension that applies this logic to any PDF opened in-browser, (2) a SaaS with batch conversion for research teams or publishers, (3) a library/SDK licensed to PDF reader apps, (4) a premium PWA with annotation features targeting students and researchers. The export-to-dark-PDF feature alone has monetization potential for power users.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.427298",
+      "last_seen": "2026-03-30T08:21:22.060645",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_18c7dc",
+      "topic": "Lossless Spotify music downloading with metadata, self-hostable",
+      "category": "Audio / Music Tools",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 35,
+        "path_b": 54,
+        "path_c": 52
+      },
+      "recommended_path": "B",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "Spotify's ongoing quality and pricing controversies, rise of self-hosted media servers (Jellyfin, Navidrome), and growing audiophile interest in lossless formats (Apple Lossless, FLAC) make this highly relevant in 2024-2025",
+      "existing_solution": "spotdl, deemix (defunct/broken), Lidarr+plugins \u2014 all fragmented, frequently broken, or legally grey with poor metadata support",
+      "social_hook": "Why pay for Spotify Premium and still not own your music in lossless? This self-hosted tool changes that.",
+      "content_angle": "Tutorial: 'How to build your own lossless music library from Spotify using Yoink + Jellyfin/Navidrome' \u2014 targets the self-hosted media crowd hungry for Plex alternatives",
+      "product_angle": "A managed hosted version of Yoink (SaaS) for non-technical users who want lossless downloads without self-hosting; or a polished GUI desktop app wrapping similar functionality with one-click setup",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.428832",
+      "last_seen": "2026-03-30T08:21:22.060701",
+      "status": "new"
+    },
+    {
+      "id": "opp_20260330_d94ea7",
+      "topic": "Prefiltered approximate nearest neighbor search in DuckDB using ACORN-1 HNSW extension",
+      "category": "Developer Tools / Vector Search / Database Extensions",
+      "signal_count": 2,
+      "max_intensity": 62,
+      "delta": null,
+      "patterns": {
+        "convergence": {
+          "detected": false,
+          "subreddit_count": 0,
+          "subreddits": [],
+          "score": 0.0
+        },
+        "unanswered": {
+          "detected": false
+        },
+        "workaround": {
+          "detected": true,
+          "descriptions": []
+        },
+        "new_community": {
+          "detected": false,
+          "communities": []
+        }
+      },
+      "scores": {
+        "path_a": 35,
+        "path_b": 54,
+        "path_c": 52
+      },
+      "recommended_path": "B",
+      "multi_path": [],
+      "is_timely": true,
+      "timely_context": "RAG pipelines and hybrid search (vector + metadata filtering) are exploding in 2024-2025 as LLM applications mature. DuckDB's rise as a beloved embedded analytics DB makes this intersection highly relevant. ACORN is a recent research algorithm (2024) making this cutting-edge.",
+      "existing_solution": "pgvector with HNSW supports prefiltering to some degree; Weaviate, Qdrant, and Pinecone offer prefiltered ANN but require external servers. No prior embedded/in-process solution existed for DuckDB.",
+      "social_hook": "You can now do WHERE-filtered approximate nearest neighbor search inside DuckDB with two lines \u2014 no server, no pgvector, no compromises on recall.",
+      "content_angle": "Tutorial or benchmark post: 'Hybrid vector search in DuckDB: prefiltered HNSW with ACORN vs. post-filtering vs. pgvector \u2014 recall and latency compared'",
+      "product_angle": "A managed or cloud-native hybrid search layer built on DuckDB+ACORN for teams who want serverless vector+metadata search without standing up Qdrant/Weaviate. Alternatively, a SaaS wrapper that exposes this as an API for RAG applications.",
+      "source_urls": [],
+      "first_seen": "2026-03-30T07:23:15.429192",
+      "last_seen": "2026-03-30T08:21:22.060764",
+      "status": "new"
+    }
+  ]
+}

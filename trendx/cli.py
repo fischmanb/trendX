@@ -29,12 +29,20 @@ logger = logging.getLogger("trendx")
 
 
 def setup_logging(verbose: bool = False):
+    import time as _time
     level = logging.DEBUG if verbose else logging.INFO
-    logging.basicConfig(
-        level=level,
-        format="%(asctime)s [%(name)s] %(levelname)s: %(message)s",
-        datefmt="%H:%M:%S",
-    )
+    
+    # Use Eastern time in log timestamps
+    class EasternFormatter(logging.Formatter):
+        def formatTime(self, record, datefmt=None):
+            from zoneinfo import ZoneInfo
+            dt = datetime.fromtimestamp(record.created, tz=ZoneInfo("America/New_York"))
+            return dt.strftime("%-I:%M:%S %p")
+    
+    handler = logging.StreamHandler()
+    handler.setFormatter(EasternFormatter("%(asctime)s [%(name)s] %(levelname)s: %(message)s"))
+    logging.root.handlers = [handler]
+    logging.root.setLevel(level)
 
 
 def get_db(config=None):
@@ -47,7 +55,8 @@ def get_db(config=None):
 
 
 async def run_ingest(config, db) -> dict:
-    """Run all ingestors and return stats."""
+    """Run all ingestors IN PARALLEL and return stats."""
+    import time as _time
     from .proxy import make_proxy_client, make_direct_client
 
     stats = {
@@ -69,86 +78,103 @@ async def run_ingest(config, db) -> dict:
     direct_client = None
 
     try:
-        # Create clients
         if config.proxy.user and config.proxy.password:
             proxy_client = make_proxy_client(config.proxy.user, config.proxy.password)
         direct_client = make_direct_client()
 
-        # Reddit (via proxy)
-        if proxy_client:
-            from .ingest.reddit import RedditIngestor
-            reddit = RedditIngestor(db, config.reddit, proxy_client)
-            count = await reddit.ingest(topics_for_search=topics)
-            stats["signals"] += count
-            stats["requests"] += reddit.request_count
-            stats["bytes"] += reddit.bytes_received
-            stats["errors"].extend(reddit.errors)
+        # Build list of concurrent ingest tasks
+        tasks = []
 
-            # Follow-up on high-intensity posts
+        async def ingest_reddit():
+            if not proxy_client:
+                return {"signals": 0, "requests": 0, "bytes": 0, "errors": ["no proxy"]}
+            from .ingest.reddit import RedditIngestor
+            r = RedditIngestor(db, config.reddit, proxy_client)
+            count = await r.ingest(topics_for_search=topics)
+            # Follow-up on high-intensity posts (comment threads)
             high_posts = db.get_unclassified_signals(limit=30)
             high_posts = [s for s in high_posts if s.get("source") == "reddit" and s.get("score", 0) > 50]
+            fu_count = 0
             if high_posts:
-                fu_count = await reddit.ingest_follow_ups(high_posts)
-                stats["signals"] += fu_count
-                stats["requests"] += reddit.request_count
-        else:
-            console.print("[yellow]Proxy not configured — skipping Reddit[/yellow]")
+                fu_count = await r.ingest_follow_ups(high_posts)
+            logger.info(f"  Reddit: {count} signals + {fu_count} follow-ups")
+            return {"signals": count + fu_count, "requests": r.request_count, "bytes": r.bytes_received, "errors": r.errors}
 
-        # HackerNews (direct)
-        from .ingest.hackernews import HackerNewsIngestor
-        hn = HackerNewsIngestor(db, config.hackernews, direct_client)
-        count = await hn.ingest()
-        stats["signals"] += count
-        stats["requests"] += hn.request_count
-        stats["bytes"] += hn.bytes_received
-        stats["errors"].extend(hn.errors)
+        async def ingest_hackernews():
+            from .ingest.hackernews import HackerNewsIngestor
+            hn = HackerNewsIngestor(db, config.hackernews, direct_client)
+            count = await hn.ingest()
+            logger.info(f"  HackerNews: {count} signals")
+            return {"signals": count, "requests": hn.request_count, "bytes": hn.bytes_received, "errors": hn.errors}
 
-        # Twitter (via proxy)
-        if proxy_client:
+        async def ingest_twitter():
+            if not proxy_client:
+                return {"signals": 0, "requests": 0, "bytes": 0, "errors": []}
             from .ingest.twitter import TwitterIngestor
-            twitter = TwitterIngestor(db, config.twitter, proxy_client)
-            count = await twitter.ingest(topics_for_search=topics)
-            stats["signals"] += count
-            stats["requests"] += twitter.request_count
-            stats["bytes"] += twitter.bytes_received
-            stats["errors"].extend(twitter.errors)
+            t = TwitterIngestor(db, config.twitter, proxy_client)
+            count = await t.ingest(topics_for_search=topics)
+            logger.info(f"  Twitter: {count} signals")
+            return {"signals": count, "requests": t.request_count, "bytes": t.bytes_received, "errors": t.errors}
 
-        # Google Trends (direct)
-        from .ingest.google_trends import GoogleTrendsIngestor
-        gt = GoogleTrendsIngestor(db, config.google_trends)
-        count = await gt.ingest()
-        stats["signals"] += count
-        stats["requests"] += gt.request_count
-        stats["errors"].extend(gt.errors)
+        async def ingest_google_trends():
+            from .ingest.google_trends import GoogleTrendsIngestor
+            gt = GoogleTrendsIngestor(db, config.google_trends)
+            count = await gt.ingest()
+            logger.info(f"  Google Trends: {count} signals")
+            return {"signals": count, "requests": gt.request_count, "bytes": 0, "errors": gt.errors}
 
-        # YouTube (direct)
-        if config.youtube.api_key:
+        async def ingest_youtube():
+            if not config.youtube.api_key:
+                return {"signals": 0, "requests": 0, "bytes": 0, "errors": []}
             from .ingest.youtube import YouTubeIngestor
             yt = YouTubeIngestor(db, config.youtube, direct_client)
             count = await yt.ingest(topics_for_search=topics)
-            stats["signals"] += count
-            stats["requests"] += yt.request_count
-            stats["bytes"] += yt.bytes_received
-            stats["errors"].extend(yt.errors)
+            logger.info(f"  YouTube: {count} signals")
+            return {"signals": count, "requests": yt.request_count, "bytes": yt.bytes_received, "errors": yt.errors}
 
-        # Quora (via proxy)
-        if proxy_client and topics:
+        async def ingest_quora():
+            if not proxy_client or not topics:
+                return {"signals": 0, "requests": 0, "bytes": 0, "errors": []}
             from .ingest.quora import QuoraIngestor
-            quora = QuoraIngestor(db, config.quora, proxy_client)
-            count = await quora.ingest(topics_for_search=topics)
-            stats["signals"] += count
-            stats["requests"] += quora.request_count
-            stats["bytes"] += quora.bytes_received
-            stats["errors"].extend(quora.errors)
+            q = QuoraIngestor(db, config.quora, proxy_client)
+            count = await q.ingest(topics_for_search=topics)
+            logger.info(f"  Quora: {count} signals")
+            return {"signals": count, "requests": q.request_count, "bytes": q.bytes_received, "errors": q.errors}
 
-        # Product Hunt (direct)
-        if config.producthunt.api_token:
+        async def ingest_producthunt():
+            if not config.producthunt.api_token:
+                return {"signals": 0, "requests": 0, "bytes": 0, "errors": []}
             from .ingest.producthunt import ProductHuntIngestor
             ph = ProductHuntIngestor(db, config.producthunt)
             count = await ph.ingest()
-            stats["signals"] += count
-            stats["requests"] += ph.request_count
-            stats["errors"].extend(ph.errors)
+            logger.info(f"  Product Hunt: {count} signals")
+            return {"signals": count, "requests": ph.request_count, "bytes": 0, "errors": ph.errors}
+
+        # Run all sources concurrently
+        t_start = _time.time()
+        results = await asyncio.gather(
+            ingest_reddit(),
+            ingest_hackernews(),
+            ingest_twitter(),
+            ingest_google_trends(),
+            ingest_youtube(),
+            ingest_quora(),
+            ingest_producthunt(),
+            return_exceptions=True,
+        )
+
+        for r in results:
+            if isinstance(r, Exception):
+                stats["errors"].append(str(r))
+                logger.error(f"Ingest source error: {r}")
+            elif isinstance(r, dict):
+                stats["signals"] += r.get("signals", 0)
+                stats["requests"] += r.get("requests", 0)
+                stats["bytes"] += r.get("bytes", 0)
+                stats["errors"].extend(r.get("errors", []))
+
+        elapsed = _time.time() - t_start
+        logger.info(f"  All sources completed in {elapsed:.1f}s (parallel)")
 
     finally:
         if proxy_client:
@@ -238,7 +264,7 @@ def scan(ctx):
 
         # Step 5: SCORE
         console.print("\n[bold cyan]Step 5/6: SCORE[/bold cyan]")
-        scored = score_all(db)
+        scored = score_all(db, config.scoring)
         console.print(f"  Scored {scored} opportunities")
 
         # Save snapshots for next cycle
@@ -301,7 +327,7 @@ def rescore(ctx):
     with get_db(config) as db:
         # Re-cluster first
         cluster_signals(db, config.clustering)
-        scored = score_all(db)
+        scored = score_all(db, config.scoring)
         console.print(f"Re-scored {scored} opportunities")
 
 
@@ -429,6 +455,35 @@ def show(ctx, opportunity_id):
 
 
 @cli.command()
+@click.argument("opportunity_id")
+@click.pass_context
+def deliberate(ctx, opportunity_id):
+    """Generate analytical assessment for an opportunity before review."""
+    config = ctx.obj["config"]
+    from .deliberate.deliberator import Deliberator
+
+    with get_db(config) as db:
+        opp = db.get_opportunity(opportunity_id)
+        if not opp:
+            console.print(f"[red]Opportunity '{opportunity_id}' not found[/red]")
+            return
+
+        opp = dict(opp)
+        console.print(f"\n[bold]Deliberating: {opp['topic']}[/bold]")
+        console.print(f"[dim]Scores: A={opp['score_path_a']} B={opp['score_path_b']} C={opp['score_path_c']}[/dim]\n")
+
+        with console.status("[bold cyan]Thinking...[/bold cyan]"):
+            deliberator = Deliberator(config.anthropic)
+            assessment = deliberator.deliberate(opp)
+
+        if assessment:
+            console.print(Panel(assessment, title="Assessment", padding=(1, 2)))
+            console.print(f"\n[dim]Cost: ${deliberator.total_cost:.4f}[/dim]")
+        else:
+            console.print("[red]Deliberation failed[/red]")
+
+
+@cli.command()
 @click.option("--interval", "-i", default=30, help="Minutes between scan cycles")
 @click.pass_context
 def watch(ctx, interval):
@@ -453,6 +508,20 @@ def watch(ctx, interval):
         except KeyboardInterrupt:
             console.print("\n[yellow]Watch mode stopped.[/yellow]")
             break
+
+
+@cli.command()
+@click.option("--interval", "-i", default=96, help="Minutes between cycles")
+@click.option("--budget", "-b", default=20.0, help="Daily budget in USD")
+@click.pass_context
+def daemon(ctx, interval, budget):
+    """Run full autonomous pipeline 24/7: ingest → classify → score → auto-eval → deliberate."""
+    from .daemon import Pipeline
+    config_path = ctx.obj.get("config_path")
+    pipeline = Pipeline(config_path=config_path, daily_budget=budget)
+    console.print(f"[bold]TrendX Daemon[/bold] — cycle every {interval}m, budget ${budget:.0f}/day")
+    console.print("Press Ctrl+C to stop\n")
+    pipeline.run_forever(interval_minutes=interval)
 
 
 @cli.command()

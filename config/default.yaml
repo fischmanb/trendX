@@ -6,7 +6,7 @@ proxy:
 
 anthropic:
   model: "claude-sonnet-4-6"
-  max_tokens: 600
+  max_tokens: 1200
   temperature: 0.2
 
 reddit:
@@ -82,3 +82,44 @@ storage:
   db_path: "data/trendx.db"
   export_path: "data/opportunities.json"
   export_top_n: 50
+
+
+# ── Scoring weights (tune these!) ──
+# All scores are 0-100. Intensity is 0-100 from classifier.
+# intensity_weight = max points intensity contributes (e.g., 20 means intensity 100 adds 20 pts)
+scoring:
+  path_a:  # Content/tools
+    signal_count_weight: 4
+    signal_count_cap: 20
+    intensity_weight: 20
+    convergence_weight: 8
+    convergence_cap: 24
+    timely_bonus: 15
+    unanswered_bonus: 12
+    no_solution_bonus: 9
+  path_b:  # Product/SaaS
+    intensity_weight: 20
+    workaround_bonus: 25
+    new_community_bonus: 15
+    no_solution_bonus: 15
+    no_solution_fallback: 3
+    evergreen_bonus: 10
+    product_shaped_bonus: 10
+    signal_count_weight: 2
+    signal_count_cap: 10
+  path_c:  # Social content
+    timely_bonus: 25
+    convergence_weight: 7
+    convergence_cap: 21
+    intensity_weight: 15
+    signal_count_weight: 3
+    signal_count_cap: 15
+    unanswered_bonus: 12
+    hook_quality_bonus: 12
+    hook_quality_fallback: 4
+  delta_boost:
+    new_c: 15
+    spike_c: 10
+    spike_a: 10
+    convergence_new_a: 15
+    convergence_new_c: 10

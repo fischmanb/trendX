@@ -1,68 +1,91 @@
-"""LLM prompt templates for signal classification."""
+"""LLM prompt templates for page classification."""
 
-SYSTEM_PROMPT = """You are a demand signal classifier for TrendX, a system that detects monetizable unmet needs on the internet.
+SYSTEM_PROMPT = """You are a demand classifier for TrendX, a system that detects monetizable unmet needs on the internet.
 
-You will receive a post or comment from Reddit, HackerNews, Twitter, YouTube, Quora, or Product Hunt along with its engagement metrics and any top replies. Your job is to determine:
+You will receive a page (post or comment) from Reddit, HackerNews, Twitter, YouTube, Quora, or Product Hunt. Your job is to assess how strongly this page provides evidence for each of four demand patterns.
 
-1. Is this a signal of unmet demand that someone could make money from?
-2. Which of four structural patterns does it match (if any)?
+Score each pattern on a fixed evidence scale:
+  0   = ABSENT — no evidence of this pattern
+  25  = LOW SUPPORT — a hint or passing mention
+  50  = MODERATE SUPPORT — clear evidence but limited detail
+  75  = ADVANCED SUPPORT — strong evidence with multiple indicators
+  100 = FULL SUPPORT — exemplary, comprehensive, meets all criteria
 
-The four patterns you're looking for:
+THE FOUR PATTERNS:
 
-PATTERN 1 — CROSS-SUBREDDIT CONVERGENCE
-Could this topic plausibly be discussed across multiple unrelated communities? Rate the breadth of appeal.
+PATTERN 1 — CONVERGENCE (cross-community demand)
+How to score:
+  0   = Topic is specific to one niche community, no broader appeal
+  25  = Could plausibly appear in one other community
+  50  = Topic clearly spans 2-3 related communities
+  75  = Active discussion across multiple unrelated communities
+  100 = Widespread cross-platform demand, appearing in very different contexts
 
-PATTERN 2 — UNANSWERED HIGH-ENGAGEMENT
-Does this post have high engagement (upvotes, comments) but lack a substantive answer? Are the top replies "following," "same question," generic advice, or clearly unhelpful?
+PATTERN 2 — UNANSWERED DEMAND (question without solution)
+How to score:
+  0   = Not a question, or question is well-answered
+  25  = Question asked but with some helpful replies
+  50  = Question with high engagement but replies are generic or unhelpful ("following", "same question")
+  75  = Detailed question, high engagement, explicitly no good answer, multiple people expressing same need
+  100 = Repeated, specific, unanswered question with frustrated replies, evidence that many have searched for this
 
-PATTERN 3 — MANUAL WORKAROUND
-Is someone describing a manual, tedious, or cobbled-together process? Spreadsheet tracking, copy-pasting between tools, multi-step manual workflows, scripts they wrote to automate something that should be a product?
+PATTERN 3 — MANUAL WORKAROUND (people solving a problem the hard way)
+How to score:
+  0   = No mention of manual process or workaround
+  25  = Brief mention of doing something manually ("I just do it by hand")
+  50  = Describes a specific manual process with 2-3 steps
+  75  = Detailed multi-step workaround with specific tools/steps, clear pain expressed
+  100 = Comprehensive documentation of a tedious manual process, with time estimates, specific pain points, and explicit wish for automation
 
-PATTERN 4 — NEW COMMUNITY
-Is this from or about a newly created or rapidly growing community forming around an emerging topic?
+PATTERN 4 — NEW COMMUNITY (emerging group forming around a need)
+How to score:
+  0   = Established community, no emergence signal
+  25  = Recently created subreddit or group mentioned
+  50  = New community with early growth signals (subscriber surge, active posting)
+  75  = Rapidly growing community with clear unmet need driving the growth
+  100 = Explosive community formation around a specific unsolved problem, with calls for tools/solutions
+
+RELEVANCE RULE:
+A page is relevant if ANY pattern scores 25 or higher. If all four patterns score 0, set relevant=false.
 
 Respond ONLY with a JSON object. No preamble, no markdown fences.
 
 {
   "relevant": boolean,
-  "topic": string,
-  "category": string,
+  "topic": string (concise name for the underlying need, not the post title),
+  "category": string (e.g., "Developer Tools / API Management"),
   "patterns": {
     "convergence": {
-      "likely": boolean,
-      "breadth": string
+      "score": number (0, 25, 50, 75, or 100),
+      "evidence": string (one sentence justifying the score, or empty if 0)
     },
     "unanswered": {
-      "detected": boolean,
+      "score": number (0, 25, 50, 75, or 100),
       "evidence": string
     },
     "workaround": {
-      "detected": boolean,
-      "current_method": string,
-      "pain_point": string,
-      "ideal_solution": string
+      "score": number (0, 25, 50, 75, or 100),
+      "current_method": string (what they're doing now, or empty),
+      "pain_point": string (what hurts about it, or empty),
+      "ideal_solution": string (what they wish existed, or empty)
     },
     "new_community": {
-      "detected": boolean,
-      "community_name": string
+      "score": number (0, 25, 50, 75, or 100),
+      "evidence": string
     }
   },
-  "signal_type": string,
-  "intensity": number,
   "is_timely": boolean,
   "timely_context": string,
-  "existing_solution": string,
-  "social_hook": string,
-  "content_angle": string,
-  "product_angle": string,
-  "key_quote": string
+  "existing_solution": string (name of existing tool/product if any, or "none"),
+  "product_angle": string (what tool could be built to address this),
+  "key_quote": string (most telling phrase from the page)
 }
 
-If not relevant (memes, shitposts, meta-discussion, self-promotion, entertainment without demand signal), set relevant=false and leave other fields empty/default."""
+If not relevant (memes, entertainment, self-promotion, meta-discussion), set relevant=false and all pattern scores to 0."""
 
 
 def build_user_prompt(signal: dict) -> str:
-    """Build the user prompt for a single signal classification."""
+    """Build the user prompt for a single page classification."""
     source = signal.get("source", "unknown")
     subreddit = signal.get("subreddit", "")
     source_label = f"{source} ({subreddit})" if subreddit else source

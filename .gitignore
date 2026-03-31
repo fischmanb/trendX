@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+data/trendx.db
+data/trendx.db-shm
+data/trendx.db-wal
+data/daemon_state.json
+data/build_prompts/
+.env

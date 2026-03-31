@@ -135,6 +135,61 @@ class StorageConfig:
 
 
 @dataclass
+class PathAWeights:
+    signal_count_weight: int = 4
+    signal_count_cap: int = 20
+    intensity_weight: int = 4
+    convergence_weight: int = 8
+    convergence_cap: int = 24
+    timely_bonus: int = 15
+    unanswered_bonus: int = 12
+    no_solution_bonus: int = 9
+
+
+@dataclass
+class PathBWeights:
+    intensity_weight: int = 4
+    workaround_bonus: int = 25
+    new_community_bonus: int = 15
+    no_solution_bonus: int = 15
+    no_solution_fallback: int = 3
+    evergreen_bonus: int = 10
+    product_shaped_bonus: int = 10
+    signal_count_weight: int = 2
+    signal_count_cap: int = 10
+
+
+@dataclass
+class PathCWeights:
+    timely_bonus: int = 25
+    convergence_weight: int = 7
+    convergence_cap: int = 21
+    intensity_weight: int = 3
+    signal_count_weight: int = 3
+    signal_count_cap: int = 15
+    unanswered_bonus: int = 12
+    hook_quality_bonus: int = 12
+    hook_quality_fallback: int = 4
+
+
+@dataclass
+class DeltaBoostWeights:
+    new_c: int = 15
+    spike_c: int = 10
+    spike_a: int = 10
+    convergence_new_a: int = 15
+    convergence_new_c: int = 10
+
+
+@dataclass
+class ScoringConfig:
+    path_a: PathAWeights = field(default_factory=PathAWeights)
+    path_b: PathBWeights = field(default_factory=PathBWeights)
+    path_c: PathCWeights = field(default_factory=PathCWeights)
+    delta_boost: DeltaBoostWeights = field(default_factory=DeltaBoostWeights)
+
+
+@dataclass
 class Config:
     proxy: ProxyConfig = field(default_factory=ProxyConfig)
     anthropic: AnthropicConfig = field(default_factory=AnthropicConfig)
@@ -149,6 +204,7 @@ class Config:
     deltas: DeltasConfig = field(default_factory=DeltasConfig)
     detection: DetectionConfig = field(default_factory=DetectionConfig)
     storage: StorageConfig = field(default_factory=StorageConfig)
+    scoring: ScoringConfig = field(default_factory=ScoringConfig)
 
 
 def _build_config_obj(raw: dict) -> Config:
@@ -268,6 +324,19 @@ def _build_config_obj(raw: dict) -> Config:
             db_path=s.get("db_path", "data/trendx.db"),
             export_path=s.get("export_path", "data/opportunities.json"),
             export_top_n=s.get("export_top_n", 50),
+        )
+
+    if "scoring" in raw:
+        sc = raw["scoring"]
+        pa = sc.get("path_a", {})
+        pb = sc.get("path_b", {})
+        pc = sc.get("path_c", {})
+        db_ = sc.get("delta_boost", {})
+        cfg.scoring = ScoringConfig(
+            path_a=PathAWeights(**{k: v for k, v in pa.items() if hasattr(PathAWeights, k)}),
+            path_b=PathBWeights(**{k: v for k, v in pb.items() if hasattr(PathBWeights, k)}),
+            path_c=PathCWeights(**{k: v for k, v in pc.items() if hasattr(PathCWeights, k)}),
+            delta_boost=DeltaBoostWeights(**{k: v for k, v in db_.items() if hasattr(DeltaBoostWeights, k)}),
         )
 
     return cfg

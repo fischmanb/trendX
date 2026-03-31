@@ -135,6 +135,10 @@ def _create_opportunity_from_signal(signal: dict) -> dict:
         "workaround_descriptions": workaround_descriptions,
         "has_new_community": bool(signal.get("new_community_detected")),
         "new_community_names": new_community_names,
+        "max_convergence_score": signal.get("convergence_score", 0),
+        "max_unanswered_score": signal.get("unanswered_score", 0),
+        "max_workaround_score": signal.get("workaround_score", 0),
+        "max_new_community_score": signal.get("new_community_score", 0),
         "is_timely": bool(signal.get("is_timely")),
         "timely_context": signal.get("timely_context", ""),
         "existing_solution": signal.get("existing_solution", ""),
@@ -161,6 +165,12 @@ def _merge_signal_into_opportunity(opp: dict, signal: dict) -> None:
     opp["signal_count"] = opp.get("signal_count", 1) + 1
     opp["max_intensity"] = max(opp.get("max_intensity", 0), signal.get("intensity", 0))
     opp["last_seen"] = datetime.utcnow().isoformat()
+
+    # Aggregate per-pattern max scores
+    opp["max_convergence_score"] = max(opp.get("max_convergence_score", 0), signal.get("convergence_score", 0))
+    opp["max_unanswered_score"] = max(opp.get("max_unanswered_score", 0), signal.get("unanswered_score", 0))
+    opp["max_workaround_score"] = max(opp.get("max_workaround_score", 0), signal.get("workaround_score", 0))
+    opp["max_new_community_score"] = max(opp.get("max_new_community_score", 0), signal.get("new_community_score", 0))
 
     # Merge subreddits
     subreddits = json.loads(opp.get("subreddits_json", "[]")) if isinstance(opp.get("subreddits_json"), str) else opp.get("subreddits", [])
